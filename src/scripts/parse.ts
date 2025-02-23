@@ -14,16 +14,14 @@ async function main() {
   // From T3 on National Treasurey website -> Budget time series data
   const revenue = await revenueBreakdownParser.parse('src/data/raw/revenue-breakdown.csv')
   const detailedRevenueBreakdown = {
-    revenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.revenueBreakdown),
-    taxRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.taxRevenueBreakdown),
-    nonTaxRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.nonTaxRevenueBreakdown),
-    vatRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.vatRevenueBreakdown),
-    exciseDutyRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.exciseDutyRevenueBreakdown),
-    taxesOnGoodsOrPermissionToUseRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.taxesOnGoodsOrPermissionToUseRevenueBreakdown),
-    otherInterestingRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.otherInterestingRevenueBreakdown),
+    revenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.revenueBreakdown, 1000),
+    taxRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.taxRevenueBreakdown, 1000),
+    nonTaxRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.nonTaxRevenueBreakdown, 1000),
+    vatRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.vatRevenueBreakdown, 1000),
+    exciseDutyRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.exciseDutyRevenueBreakdown, 1000),
+    taxesOnGoodsOrPermissionToUseRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.taxesOnGoodsOrPermissionToUseRevenueBreakdown, 1000),
+    otherInterestingRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.otherInterestingRevenueBreakdown, 1000),
   }
-
-  console.log(2222, detailedRevenueBreakdown.revenueBreakdown)
 
   writeData('src/data/parsed/revenue-expenses.json', formatRevenueAndExpenses(summary.headers, summary.totalRevenue, summary.totalExpense))
   writeData('src/data/parsed/borrowing-requirement.json', formatExpenseBreakdown(summary.headers, summary.borrowingRequirementBreakdown))
@@ -32,22 +30,22 @@ async function main() {
   writeData('src/data/parsed/detailed-revenue-breakdown.json', detailedRevenueBreakdown)
 }
 
-function formatRevenueAndExpenses(years: string[], revenue: number[], expenses: number[]): object[] {
+// Multiply by is used to normalize the values. Some sheets have it represented per million and some per thousand
+function formatRevenueAndExpenses(years: string[], revenue: number[], expenses: number[], multiplyBy = 1000000): object[] {
   const data: object[] = []
 
   years.forEach((year, index) => {
     data.push({
       category: year,
-      revenue: revenue[index],
-      expenses: expenses[index],
+      revenue: revenue[index] * multiplyBy,
+      expenses: expenses[index] * multiplyBy,
     })
   })
 
   return data
 }
 
-function formatExpenseBreakdown(years: string[], expenses: { [key: string]: number[] }): object[] {
-  console.log(333, expenses)
+function formatExpenseBreakdown(years: string[], expenses: { [key: string]: number[] }, multiplyBy = 1000000): object[] {
   const data: object[] = []
   years.forEach((year, index) => {
     const keys = Object.keys(expenses)
@@ -56,7 +54,7 @@ function formatExpenseBreakdown(years: string[], expenses: { [key: string]: numb
     }
 
     keys.forEach((key) => {
-      value[key.toLowerCase().replace(/ /g, '_').replace(/-/g, '_')] = expenses[key][index]
+      value[key.toLowerCase().replace(/ /g, '_').replace(/-/g, '_')] = expenses[key][index] * multiplyBy
     })
     data.push(value)
   })

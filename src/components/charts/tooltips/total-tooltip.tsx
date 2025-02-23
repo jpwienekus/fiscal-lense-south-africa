@@ -27,7 +27,7 @@ const formatNumber = (value: number) => {
     maximumFractionDigits: 2
   })
 
-  return formatter.format(value * 1000000)
+  return formatter.format(value)
 }
 
 export const formatTotalTooltip = (value: ValueType, name: NameType, item: Payload<ValueType, NameType>, index: number, chartConfig: ChartConfig, showTotal = false) => {

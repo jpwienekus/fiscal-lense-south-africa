@@ -49,7 +49,7 @@ const chartConfig = {
     color: "var(--chart-6)"
   },
   petroleum_products: {
-    label: "Petroleum producst",
+    label: "Petroleum products",
     color: "var(--chart-7)"
   },
   revenue_from_neighbouring_countries: {
