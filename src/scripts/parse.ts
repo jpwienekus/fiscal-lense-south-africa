@@ -10,10 +10,26 @@ async function main() {
   // From T5 on National Treasurey website -> Budget time series data
   const expense = await expenseBreakdownParser.parse('src/data/raw/expense-breakdown.csv')
 
+  const revenueBreakdownParser = new RevenueBreakdownParser()
+  // From T3 on National Treasurey website -> Budget time series data
+  const revenue = await revenueBreakdownParser.parse('src/data/raw/revenue-breakdown.csv')
+  const detailedRevenueBreakdown = {
+    revenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.revenueBreakdown),
+    taxRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.taxRevenueBreakdown),
+    nonTaxRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.nonTaxRevenueBreakdown),
+    vatRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.vatRevenueBreakdown),
+    exciseDutyRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.exciseDutyRevenueBreakdown),
+    taxesOnGoodsOrPermissionToUseRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.taxesOnGoodsOrPermissionToUseRevenueBreakdown),
+    otherInterestingRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.otherInterestingRevenueBreakdown),
+  }
+
+  console.log(2222, detailedRevenueBreakdown.revenueBreakdown)
+
   writeData('src/data/parsed/revenue-expenses.json', formatRevenueAndExpenses(summary.headers, summary.totalRevenue, summary.totalExpense))
   writeData('src/data/parsed/borrowing-requirement.json', formatExpenseBreakdown(summary.headers, summary.borrowingRequirementBreakdown))
   writeData('src/data/parsed/revenue-breakdown.json', formatExpenseBreakdown(summary.headers, summary.revenueBreakdown))
   writeData('src/data/parsed/expense-breakdown.json', formatExpenseBreakdown(expense.headers, expense.expenseBreakdown))
+  writeData('src/data/parsed/detailed-revenue-breakdown.json', detailedRevenueBreakdown)
 }
 
 function formatRevenueAndExpenses(years: string[], revenue: number[], expenses: number[]): object[] {
@@ -31,6 +47,7 @@ function formatRevenueAndExpenses(years: string[], revenue: number[], expenses: 
 }
 
 function formatExpenseBreakdown(years: string[], expenses: { [key: string]: number[] }): object[] {
+  console.log(333, expenses)
   const data: object[] = []
   years.forEach((year, index) => {
     const keys = Object.keys(expenses)
@@ -127,7 +144,6 @@ export class SummaryParser extends BaseParser {
 }
 
 export class ExpenseBreakdownParser extends BaseParser {
-
   async parse(filePath: string) {
     if (!existsSync(filePath)) {
       throw new Error('File not found');
@@ -163,6 +179,66 @@ export class ExpenseBreakdownParser extends BaseParser {
       headers,
       expenseBreakdown,
       totalExpenses,
+    }
+  }
+}
+
+export class RevenueBreakdownParser extends BaseParser {
+  async parse(filePath: string) {
+    const fileStream = createReadStream(filePath)
+    const readline = createInterface({
+      input: fileStream,
+      crlfDelay: Infinity
+    })
+
+    let lineNumber = 0
+    let headers: string[] = []
+    const revenueBreakdown: { [key: string]: number[] } = {}
+    const taxRevenueBreakdown: { [key: string]: number[] } = {}
+    const nonTaxRevenueBreakdown: { [key: string]: number[] } = {}
+    // More out of interest than anything else
+    const vatRevenueBreakdown: { [key: string]: number[] } = {}
+    const exciseDutyRevenueBreakdown: { [key: string]: number[] } = {}
+    const taxesOnGoodsOrPermissionToUseRevenueBreakdown: { [key: string]: number[] } = {}
+    const otherInterestingRevenueBreakdown: { [key: string]: number[] } = {}
+
+
+    for await (const line of readline) {
+      const parsedLine = line.split(this.delimiter)
+
+      if (lineNumber === 0) {
+        headers = parsedLine.splice(1)
+      } else if ([1, 11, 13, 20, 50, 58, 60].includes(lineNumber)) {
+        taxRevenueBreakdown[parsedLine[0].trim().toLowerCase().replace(/ /g, '_').replace(/-/g, '_').replace(/:/g, '_').replace(/\(/g, '_').replace(/\)/g, '_')] = parsedLine.splice(1).map(Number)
+      } else if ([67, 73, 74, 75, 98, 99].includes(lineNumber)) {
+        nonTaxRevenueBreakdown[parsedLine[0].trim().toLowerCase().replace(/ /g, '_').replace(/-/g, '_').replace(/:/g, '_').replace(/\(/g, '_').replace(/\)/g, '_')] = parsedLine.splice(1).map(Number)
+      } else if ([61, 62, 96, 97, 100].includes(lineNumber)) {
+        revenueBreakdown[parsedLine[0].trim().toLowerCase().replace(/ /g, '_').replace(/-/g, '_').replace(/:/g, '_').replace(/\(/g, '_').replace(/\)/g, '_')] = parsedLine.splice(1).map(Number)
+      } else if ([22, 23, 24].includes(lineNumber)) {
+        vatRevenueBreakdown[parsedLine[0].trim().toLowerCase().replace(/ /g, '_').replace(/-/g, '_').replace(/:/g, '_').replace(/\(/g, '_').replace(/\)/g, '_')] = parsedLine.splice(1).map(Number)
+      } else if ([26, 27, 28, 29, 30, 31, 32, 33].includes(lineNumber)) {
+        exciseDutyRevenueBreakdown[parsedLine[0].trim().toLowerCase().replace(/ /g, '_').replace(/-/g, '_').replace(/:/g, '_').replace(/\(/g, '_').replace(/\)/g, '_')] = parsedLine.splice(1).map(Number)
+      } else if ([39, 40, 41, 42, 43, 44, 45, 46, 47].includes(lineNumber)) {
+        taxesOnGoodsOrPermissionToUseRevenueBreakdown[parsedLine[0].trim().toLowerCase().replace(/ /g, '_').replace(/-/g, '_').replace(/:/g, '_').replace(/\(/g, '_').replace(/\)/g, '_')] = parsedLine.splice(1).map(Number)
+      } else if ([35, 36, 52].includes(lineNumber)) {
+        otherInterestingRevenueBreakdown[parsedLine[0].trim().toLowerCase().replace(/ /g, '_').replace(/-/g, '_').replace(/:/g, '_').replace(/\(/g, '_').replace(/\)/g, '_')] = parsedLine.splice(1).map(Number)
+      }
+
+      lineNumber++
+    }
+
+    return {
+      headers,
+      //totalTaxRevenue,
+      //totalNonTaxRevenue,
+      //totalRevenue,
+      revenueBreakdown,
+      taxRevenueBreakdown,
+      nonTaxRevenueBreakdown,
+      vatRevenueBreakdown,
+      exciseDutyRevenueBreakdown,
+      taxesOnGoodsOrPermissionToUseRevenueBreakdown,
+      otherInterestingRevenueBreakdown
     }
   }
 }

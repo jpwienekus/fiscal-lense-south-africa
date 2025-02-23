@@ -14,54 +14,37 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import jsonData from '@/data/parsed/revenue-breakdown.json'
 import { formatTotalTooltip } from "./tooltips/total-tooltip"
-import { Link } from "react-router-dom"
-import { SquareArrowOutUpRight } from "lucide-react"
+import { otherInterestingRevenueBreakdown } from '@/data/parsed/detailed-revenue-breakdown.json'
 
 const numberOfYears = 10
-const chartData = jsonData.slice(numberOfYears * -1)
+const chartData = otherInterestingRevenueBreakdown.slice(numberOfYears * -1)
 const latestYear = chartData[chartData.length - 1]
 const firstYear = chartData[0].category
 const lastYear = latestYear.category
 
 const chartConfig = {
-  tax_revenue__gross_: {
-    label: "Tax revenue (gross)",
+  ad_valorem_excise_duties: {
+    label: "Ad valorem excise duties",
     color: "var(--chart-1)"
   },
-  less__sacu_payments: {
-    label: "Less: SACU payments",
+  fuel_levy: {
+    label: "Fuel levy",
     color: "var(--chart-2)"
   },
-  other_adjustment: {
-    label: "Other adjustment",
+  customs_duties: {
+    label: "Custom duties",
     color: "var(--chart-3)"
-  },
-  non_tax_revenue__departmental_receipts_: {
-    label: "Non-tax revenue (departmental receipts)",
-    color: "var(--chart-4)"
-  },
-  financial_transactions_in_assets_and_liabilities: {
-    label: "Financial transactions in assets and liabilities",
-    color: "var(--chart-5)"
-  },
-  sales_of_capital_assets: {
-    label: "Sales of capital assets",
-    color: "var(--chart-6)"
   },
 } satisfies ChartConfig
 
-export function RevenueBreakdownChart() {
+export function OtherInterestingRevenueBreakdownChart() {
   return (
     <Card>
       <CardHeader>
         <CardTitle>
           <span className="flex">
-            Revenue Breakdown
-            <Link to="/national-revenue-breakdown">
-              <SquareArrowOutUpRight className="px-1" height={10}/>
-            </Link>
+            Other Interesting Revenue Breakdown
           </span>
         </CardTitle>
         <CardDescription>{firstYear} - {lastYear}</CardDescription>

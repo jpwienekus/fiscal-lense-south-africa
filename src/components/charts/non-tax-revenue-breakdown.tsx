@@ -14,54 +14,51 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import jsonData from '@/data/parsed/revenue-breakdown.json'
 import { formatTotalTooltip } from "./tooltips/total-tooltip"
 import { Link } from "react-router-dom"
 import { SquareArrowOutUpRight } from "lucide-react"
+import { nonTaxRevenueBreakdown } from '@/data/parsed/detailed-revenue-breakdown.json'
 
 const numberOfYears = 10
-const chartData = jsonData.slice(numberOfYears * -1)
+const chartData = nonTaxRevenueBreakdown.slice(numberOfYears * -1)
 const latestYear = chartData[chartData.length - 1]
 const firstYear = chartData[0].category
 const lastYear = latestYear.category
 
 const chartConfig = {
-  tax_revenue__gross_: {
-    label: "Tax revenue (gross)",
+  sales_of_goods_and_services_other_than_capital_assets: {
+    label: "Sales of goods and services other than capital assets",
     color: "var(--chart-1)"
   },
-  less__sacu_payments: {
-    label: "Less: SACU payments",
+  transfers_received: {
+    label: "Transfers received",
     color: "var(--chart-2)"
   },
-  other_adjustment: {
-    label: "Other adjustment",
+  fines_penalties_and_forfeits: {
+    label: "Fines, penalties and forfeits",
     color: "var(--chart-3)"
   },
-  non_tax_revenue__departmental_receipts_: {
-    label: "Non-tax revenue (departmental receipts)",
+  interest_dividends_and_rent_on_land: {
+    label: "Interest, dividends and rent on land",
     color: "var(--chart-4)"
   },
-  financial_transactions_in_assets_and_liabilities: {
-    label: "Financial transactions in assets and liabilities",
+  icasa: {
+    label: "Icasa",
     color: "var(--chart-5)"
   },
-  sales_of_capital_assets: {
+  competition_commission: {
     label: "Sales of capital assets",
     color: "var(--chart-6)"
   },
 } satisfies ChartConfig
 
-export function RevenueBreakdownChart() {
+export function NonTaxRevenueBreakdownChart() {
   return (
     <Card>
       <CardHeader>
         <CardTitle>
           <span className="flex">
-            Revenue Breakdown
-            <Link to="/national-revenue-breakdown">
-              <SquareArrowOutUpRight className="px-1" height={10}/>
-            </Link>
+            Non Tax Revenue Breakdown
           </span>
         </CardTitle>
         <CardDescription>{firstYear} - {lastYear}</CardDescription>

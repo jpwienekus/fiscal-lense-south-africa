@@ -89,7 +89,7 @@ export function NavBar() {
               className="block px-4 py-2 hover:bg-accent hover:text-accent-foreground rounded-md"
               asChild
             >
-              <Link to="/revenue-breakdown">
+              <Link to="/national-revenue-breakdown">
                 Detailed Revenue Breakdown
               </Link>
             </NavigationMenuLink>

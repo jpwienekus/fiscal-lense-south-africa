@@ -14,54 +14,55 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import jsonData from '@/data/parsed/revenue-breakdown.json'
 import { formatTotalTooltip } from "./tooltips/total-tooltip"
 import { Link } from "react-router-dom"
 import { SquareArrowOutUpRight } from "lucide-react"
+import { taxRevenueBreakdown } from '@/data/parsed/detailed-revenue-breakdown.json'
 
 const numberOfYears = 10
-const chartData = jsonData.slice(numberOfYears * -1)
+const chartData = taxRevenueBreakdown.slice(numberOfYears * -1)
 const latestYear = chartData[chartData.length - 1]
 const firstYear = chartData[0].category
 const lastYear = latestYear.category
 
 const chartConfig = {
-  tax_revenue__gross_: {
-    label: "Tax revenue (gross)",
+  taxes_on_income_and_profits: {
+    label: "Taxes on income and profits",
     color: "var(--chart-1)"
   },
-  less__sacu_payments: {
-    label: "Less: SACU payments",
+  taxes_on_payroll_and_workforce: {
+    label: "Taxes on payroll and workforce",
     color: "var(--chart-2)"
   },
-  other_adjustment: {
-    label: "Other adjustment",
+  taxes_on_property: {
+    label: "Taxes on property",
     color: "var(--chart-3)"
   },
-  non_tax_revenue__departmental_receipts_: {
-    label: "Non-tax revenue (departmental receipts)",
+  domestic_taxes_on_goods_and_services: {
+    label: "Domestic taxes on goods and services",
     color: "var(--chart-4)"
   },
-  financial_transactions_in_assets_and_liabilities: {
-    label: "Financial transactions in assets and liabilities",
+  taxes_on_international_trade_and_transactions: {
+    label: "Taxes on international trade and transations",
     color: "var(--chart-5)"
   },
-  sales_of_capital_assets: {
+  other_taxes: {
     label: "Sales of capital assets",
     color: "var(--chart-6)"
   },
+  state_miscellaneous_revenue: {
+    label: "Sales of capital assets",
+    color: "var(--chart-7)"
+  },
 } satisfies ChartConfig
 
-export function RevenueBreakdownChart() {
+export function TaxRevenueBreakdownChart() {
   return (
     <Card>
       <CardHeader>
         <CardTitle>
           <span className="flex">
-            Revenue Breakdown
-            <Link to="/national-revenue-breakdown">
-              <SquareArrowOutUpRight className="px-1" height={10}/>
-            </Link>
+            Tax Revenue Breakdown
           </span>
         </CardTitle>
         <CardDescription>{firstYear} - {lastYear}</CardDescription>

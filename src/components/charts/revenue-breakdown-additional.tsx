@@ -14,19 +14,19 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import jsonData from '@/data/parsed/revenue-breakdown.json'
 import { formatTotalTooltip } from "./tooltips/total-tooltip"
 import { Link } from "react-router-dom"
 import { SquareArrowOutUpRight } from "lucide-react"
+import jsonData from '@/data/parsed/detailed-revenue-breakdown.json'
 
 const numberOfYears = 10
-const chartData = jsonData.slice(numberOfYears * -1)
+const chartData = jsonData.revenueBreakdown.slice(numberOfYears * -1)
 const latestYear = chartData[chartData.length - 1]
 const firstYear = chartData[0].category
 const lastYear = latestYear.category
 
 const chartConfig = {
-  tax_revenue__gross_: {
+  total_tax_revenue__gross_: {
     label: "Tax revenue (gross)",
     color: "var(--chart-1)"
   },
@@ -34,21 +34,17 @@ const chartConfig = {
     label: "Less: SACU payments",
     color: "var(--chart-2)"
   },
-  other_adjustment: {
-    label: "Other adjustment",
-    color: "var(--chart-3)"
-  },
   non_tax_revenue__departmental_receipts_: {
     label: "Non-tax revenue (departmental receipts)",
-    color: "var(--chart-4)"
+    color: "var(--chart-3)"
   },
   financial_transactions_in_assets_and_liabilities: {
     label: "Financial transactions in assets and liabilities",
-    color: "var(--chart-5)"
+    color: "var(--chart-4)"
   },
   sales_of_capital_assets: {
     label: "Sales of capital assets",
-    color: "var(--chart-6)"
+    color: "var(--chart-5)"
   },
 } satisfies ChartConfig
 
@@ -59,9 +55,6 @@ export function RevenueBreakdownChart() {
         <CardTitle>
           <span className="flex">
             Revenue Breakdown
-            <Link to="/national-revenue-breakdown">
-              <SquareArrowOutUpRight className="px-1" height={10}/>
-            </Link>
           </span>
         </CardTitle>
         <CardDescription>{firstYear} - {lastYear}</CardDescription>

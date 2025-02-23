@@ -14,54 +14,61 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import jsonData from '@/data/parsed/revenue-breakdown.json'
 import { formatTotalTooltip } from "./tooltips/total-tooltip"
-import { Link } from "react-router-dom"
-import { SquareArrowOutUpRight } from "lucide-react"
+import { taxesOnGoodsOrPermissionToUseRevenueBreakdown } from '@/data/parsed/detailed-revenue-breakdown.json'
 
 const numberOfYears = 10
-const chartData = jsonData.slice(numberOfYears * -1)
+const chartData = taxesOnGoodsOrPermissionToUseRevenueBreakdown.slice(numberOfYears * -1)
 const latestYear = chartData[chartData.length - 1]
 const firstYear = chartData[0].category
 const lastYear = latestYear.category
 
 const chartConfig = {
-  tax_revenue__gross_: {
-    label: "Tax revenue (gross)",
+  air_departure_tax: {
+    label: "Air departure tax",
     color: "var(--chart-1)"
   },
-  less__sacu_payments: {
-    label: "Less: SACU payments",
+  plastic_bag_levy: {
+    label: "Plastic bag levy",
     color: "var(--chart-2)"
   },
-  other_adjustment: {
-    label: "Other adjustment",
+  electricity_levy: {
+    label: "Electricity levy",
     color: "var(--chart-3)"
   },
-  non_tax_revenue__departmental_receipts_: {
-    label: "Non-tax revenue (departmental receipts)",
+  incandescent_light_bulb_levy: {
+    label: "Incandescent light bulb levy",
     color: "var(--chart-4)"
   },
-  financial_transactions_in_assets_and_liabilities: {
-    label: "Financial transactions in assets and liabilities",
+  co2_tax___motor_vehicle_emissions: {
+    label: "CO2 tax motor vehicle emissions",
     color: "var(--chart-5)"
   },
-  sales_of_capital_assets: {
-    label: "Sales of capital assets",
+  tyre_levy: {
+    label: "Tyre levy",
     color: "var(--chart-6)"
+  },
+  international_oil_pollution_compensation_fund: {
+    label: "International oil pollution compensation fund",
+    color: "var(--chart-7)"
+  },
+  carbon_tax: {
+    label: "Carbon tax",
+    color: "var(--chart-8)"
+  },
+  turnover_tax_for_micro_businesses: {
+    label: "Turnover tax forf micro businesses",
+    color: "var(--chart-8)"
   },
 } satisfies ChartConfig
 
-export function RevenueBreakdownChart() {
+export function TaxesOnGoodsOrPermissionToUseRevenueBreakdownChart() {
   return (
     <Card>
       <CardHeader>
         <CardTitle>
           <span className="flex">
-            Revenue Breakdown
-            <Link to="/national-revenue-breakdown">
-              <SquareArrowOutUpRight className="px-1" height={10}/>
-            </Link>
+            Taxes On Goods Or Permission To Use Revenue Breakdown
           </span>
         </CardTitle>
         <CardDescription>{firstYear} - {lastYear}</CardDescription>

@@ -1,0 +1,1194 @@
+{
+  "revenueBreakdown": [
+    {
+      "category": "",
+      "total_tax_revenue__gross_": 0,
+      "less__sacu_payments": 0,
+      "sales_of_capital_assets": 0,
+      "financial_transactions_in_assets_and_liabilities": 0,
+      "total_non_tax_revenue": 0
+    },
+    {
+      "category": "2006/07",
+      "total_tax_revenue__gross_": 495548617,
+      "less__sacu_payments": -25194939,
+      "sales_of_capital_assets": 38785,
+      "financial_transactions_in_assets_and_liabilities": 1739790,
+      "total_non_tax_revenue": 10843316
+    },
+    {
+      "category": "2007/08",
+      "total_tax_revenue__gross_": 572814636,
+      "less__sacu_payments": -24712567,
+      "sales_of_capital_assets": 230100,
+      "financial_transactions_in_assets_and_liabilities": 1296910,
+      "total_non_tax_revenue": 12692579
+    },
+    {
+      "category": "2008/09",
+      "total_tax_revenue__gross_": 625100163,
+      "less__sacu_payments": -28920624,
+      "sales_of_capital_assets": 131244,
+      "financial_transactions_in_assets_and_liabilities": 797067,
+      "total_non_tax_revenue": 12616184
+    },
+    {
+      "category": "2009/10",
+      "total_tax_revenue__gross_": 598705443.5,
+      "less__sacu_payments": -27915405.31,
+      "sales_of_capital_assets": 36263,
+      "financial_transactions_in_assets_and_liabilities": 957093,
+      "total_non_tax_revenue": 8894421
+    },
+    {
+      "category": "2010/11",
+      "total_tax_revenue__gross_": 674183146.9,
+      "less__sacu_payments": -17905679.4,
+      "sales_of_capital_assets": 35448,
+      "financial_transactions_in_assets_and_liabilities": 4226273,
+      "total_non_tax_revenue": 16473986
+    },
+    {
+      "category": "2011/12",
+      "total_tax_revenue__gross_": 742649713.2,
+      "less__sacu_payments": -21759964,
+      "sales_of_capital_assets": 114745,
+      "financial_transactions_in_assets_and_liabilities": 9758163,
+      "total_non_tax_revenue": 24401513
+    },
+    {
+      "category": "2012/13",
+      "total_tax_revenue__gross_": 813825814.9,
+      "less__sacu_payments": -42151276,
+      "sales_of_capital_assets": 94462,
+      "financial_transactions_in_assets_and_liabilities": 13969548,
+      "total_non_tax_revenue": 28467697
+    },
+    {
+      "category": "2013/14",
+      "total_tax_revenue__gross_": 900014720.5,
+      "less__sacu_payments": -43374383.81,
+      "sales_of_capital_assets": 37002,
+      "financial_transactions_in_assets_and_liabilities": 15957324,
+      "total_non_tax_revenue": 30725836.26
+    },
+    {
+      "category": "2014/15",
+      "total_tax_revenue__gross_": 986295019.2,
+      "less__sacu_payments": -51737656.46,
+      "sales_of_capital_assets": 77437,
+      "financial_transactions_in_assets_and_liabilities": 15333408,
+      "total_non_tax_revenue": 30899583.52
+    },
+    {
+      "category": "2015/16",
+      "total_tax_revenue__gross_": 1069982618,
+      "less__sacu_payments": -51021909,
+      "sales_of_capital_assets": 121142,
+      "financial_transactions_in_assets_and_liabilities": 43387616,
+      "total_non_tax_revenue": 57275714.78
+    },
+    {
+      "category": "2016/17",
+      "total_tax_revenue__gross_": 1144080987,
+      "less__sacu_payments": -39448348,
+      "sales_of_capital_assets": 149200,
+      "financial_transactions_in_assets_and_liabilities": 18224915,
+      "total_non_tax_revenue": 33271788.46
+    },
+    {
+      "category": "2017/18",
+      "total_tax_revenue__gross_": 1249711235,
+      "less__sacu_payments": -55950873,
+      "sales_of_capital_assets": 197491,
+      "financial_transactions_in_assets_and_liabilities": 19540965,
+      "total_non_tax_revenue": 35849271.15
+    },
+    {
+      "category": "2018/19",
+      "total_tax_revenue__gross_": 1287690241,
+      "less__sacu_payments": -48288636,
+      "sales_of_capital_assets": 111917,
+      "financial_transactions_in_assets_and_liabilities": 14453119,
+      "total_non_tax_revenue": 35869028
+    },
+    {
+      "category": "2019/20",
+      "total_tax_revenue__gross_": 1355766258,
+      "less__sacu_payments": -50280313,
+      "sales_of_capital_assets": 120742,
+      "financial_transactions_in_assets_and_liabilities": 15807178.48,
+      "total_non_tax_revenue": 40383988.2
+    },
+    {
+      "category": "2020/21",
+      "total_tax_revenue__gross_": 1249711235,
+      "less__sacu_payments": -63395241,
+      "sales_of_capital_assets": 124134,
+      "financial_transactions_in_assets_and_liabilities": 28404741,
+      "total_non_tax_revenue": 52052738
+    },
+    {
+      "category": "2021/22",
+      "total_tax_revenue__gross_": 1563754245,
+      "less__sacu_payments": -45966211,
+      "sales_of_capital_assets": 136302,
+      "financial_transactions_in_assets_and_liabilities": 8854020,
+      "total_non_tax_revenue": 46484719
+    },
+    {
+      "category": "2022/23",
+      "total_tax_revenue__gross_": 1686697378,
+      "less__sacu_payments": -43683418,
+      "sales_of_capital_assets": 187256,
+      "financial_transactions_in_assets_and_liabilities": 17024918.04,
+      "total_non_tax_revenue": 56204575.5
+    },
+    {
+      "category": "2023/24",
+      "total_tax_revenue__gross_": 1731352677,
+      "less__sacu_payments": -79810981,
+      "sales_of_capital_assets": 163117,
+      "financial_transactions_in_assets_and_liabilities": 33979632,
+      "total_non_tax_revenue": 61293869.89
+    }
+  ],
+  "taxRevenueBreakdown": [
+    {
+      "category": "",
+      "taxes_on_income_and_profits": 0,
+      "taxes_on_payroll_and_workforce": 0,
+      "taxes_on_property": 0,
+      "domestic_taxes_on_goods_and_services": 0,
+      "taxes_on_international_trade_and_transactions": 0,
+      "other_taxes": 0,
+      "state_miscellaneous_revenue": 0
+    },
+    {
+      "category": "2006/07",
+      "taxes_on_income_and_profits": 279990516,
+      "taxes_on_payroll_and_workforce": 5597401,
+      "taxes_on_property": 10332290,
+      "domestic_taxes_on_goods_and_services": 174671372,
+      "taxes_on_international_trade_and_transactions": 24002197,
+      "other_taxes": 615670,
+      "state_miscellaneous_revenue": 339171
+    },
+    {
+      "category": "2007/08",
+      "taxes_on_income_and_profits": 332058296,
+      "taxes_on_payroll_and_workforce": 6330917,
+      "taxes_on_property": 11883869,
+      "domestic_taxes_on_goods_and_services": 194690295,
+      "taxes_on_international_trade_and_transactions": 27081900,
+      "other_taxes": 557123,
+      "state_miscellaneous_revenue": 212236
+    },
+    {
+      "category": "2008/09",
+      "taxes_on_income_and_profits": 383482732,
+      "taxes_on_payroll_and_workforce": 7327463,
+      "taxes_on_property": 9477079,
+      "domestic_taxes_on_goods_and_services": 201416062,
+      "taxes_on_international_trade_and_transactions": 22852428,
+      "other_taxes": 571838,
+      "state_miscellaneous_revenue": -27439
+    },
+    {
+      "category": "2009/10",
+      "taxes_on_income_and_profits": 359044847.3,
+      "taxes_on_payroll_and_workforce": 7804828.63,
+      "taxes_on_property": 8826421.502,
+      "domestic_taxes_on_goods_and_services": 203666753.2,
+      "taxes_on_international_trade_and_transactions": 19318860.18,
+      "other_taxes": 49456.818,
+      "state_miscellaneous_revenue": -5724.33455
+    },
+    {
+      "category": "2010/11",
+      "taxes_on_income_and_profits": 379941232.7,
+      "taxes_on_payroll_and_workforce": 8652340.265,
+      "taxes_on_property": 9102302.264,
+      "domestic_taxes_on_goods_and_services": 249490372.7,
+      "taxes_on_international_trade_and_transactions": 26977131.52,
+      "other_taxes": 3069.00805,
+      "state_miscellaneous_revenue": 16698.44968
+    },
+    {
+      "category": "2011/12",
+      "taxes_on_income_and_profits": 426583730.3,
+      "taxes_on_payroll_and_workforce": 10173133.11,
+      "taxes_on_property": 7817499.44,
+      "domestic_taxes_on_goods_and_services": 263949857.7,
+      "taxes_on_international_trade_and_transactions": 34120982.88,
+      "other_taxes": -2893.70249,
+      "state_miscellaneous_revenue": 7403.41636
+    },
+    {
+      "category": "2012/13",
+      "taxes_on_income_and_profits": 457313835.3,
+      "taxes_on_payroll_and_workforce": 11378478.33,
+      "taxes_on_property": 8645211.423,
+      "domestic_taxes_on_goods_and_services": 296921468.7,
+      "taxes_on_international_trade_and_transactions": 39549121.48,
+      "other_taxes": 493.56345,
+      "state_miscellaneous_revenue": 17206.08957
+    },
+    {
+      "category": "2013/14",
+      "taxes_on_income_and_profits": 507759154.1,
+      "taxes_on_payroll_and_workforce": 12475597.46,
+      "taxes_on_property": 10487061.29,
+      "domestic_taxes_on_goods_and_services": 324548175.4,
+      "taxes_on_international_trade_and_transactions": 44732170.2,
+      "other_taxes": 31659.25245,
+      "state_miscellaneous_revenue": -19097
+    },
+    {
+      "category": "2014/15",
+      "taxes_on_income_and_profits": 561789780,
+      "taxes_on_payroll_and_workforce": 14032119.13,
+      "taxes_on_property": 12471533.9,
+      "domestic_taxes_on_goods_and_services": 356554422.9,
+      "taxes_on_international_trade_and_transactions": 41462935.4,
+      "other_taxes": -1202,
+      "state_miscellaneous_revenue": -14570
+    },
+    {
+      "category": "2015/16",
+      "taxes_on_income_and_profits": 606820534.5,
+      "taxes_on_payroll_and_workforce": 15220157.63,
+      "taxes_on_property": 15044069.01,
+      "domestic_taxes_on_goods_and_services": 385955944.6,
+      "taxes_on_international_trade_and_transactions": 46942317.6,
+      "other_taxes": 402.50565,
+      "state_miscellaneous_revenue": -808
+    },
+    {
+      "category": "2016/17",
+      "taxes_on_income_and_profits": 664526445.8,
+      "taxes_on_payroll_and_workforce": 15314760.65,
+      "taxes_on_property": 15661245.97,
+      "domestic_taxes_on_goods_and_services": 402463950,
+      "taxes_on_international_trade_and_transactions": 46102497.4,
+      "other_taxes": -125,
+      "state_miscellaneous_revenue": 12212.10049
+    },
+    {
+      "category": "2017/18",
+      "taxes_on_income_and_profits": 711703019,
+      "taxes_on_payroll_and_workforce": 16012405.67,
+      "taxes_on_property": 16584606.6,
+      "domestic_taxes_on_goods_and_services": 422248281.9,
+      "taxes_on_international_trade_and_transactions": 49939408.2,
+      "other_taxes": -337,
+      "state_miscellaneous_revenue": -23511
+    },
+    {
+      "category": "2018/19",
+      "taxes_on_income_and_profits": 738740596.8,
+      "taxes_on_payroll_and_workforce": 17438988.72,
+      "taxes_on_property": 15251778.45,
+      "domestic_taxes_on_goods_and_services": 460544575,
+      "taxes_on_international_trade_and_transactions": 55722905.77,
+      "other_taxes": 48.06047,
+      "state_miscellaneous_revenue": -8651
+    },
+    {
+      "category": "2019/20",
+      "taxes_on_income_and_profits": 772684806.2,
+      "taxes_on_payroll_and_workforce": 18486280.34,
+      "taxes_on_property": 15979940.21,
+      "domestic_taxes_on_goods_and_services": 492282787.7,
+      "taxes_on_international_trade_and_transactions": 56322406.19,
+      "other_taxes": 0,
+      "state_miscellaneous_revenue": 10037.25728
+    },
+    {
+      "category": "2020/21",
+      "taxes_on_income_and_profits": 718180499,
+      "taxes_on_payroll_and_workforce": 12250229.46,
+      "taxes_on_property": 15946617.68,
+      "domestic_taxes_on_goods_and_services": 455866614.8,
+      "taxes_on_international_trade_and_transactions": 47455393.82,
+      "other_taxes": 0,
+      "state_miscellaneous_revenue": 11880.09592
+    },
+    {
+      "category": "2021/22",
+      "taxes_on_income_and_profits": 912870032.1,
+      "taxes_on_payroll_and_workforce": 19335916.69,
+      "taxes_on_property": 22032794.59,
+      "domestic_taxes_on_goods_and_services": 549806294.2,
+      "taxes_on_international_trade_and_transactions": 59719264.62,
+      "other_taxes": 0,
+      "state_miscellaneous_revenue": -10057
+    },
+    {
+      "category": "2022/23",
+      "taxes_on_income_and_profits": 988505254.6,
+      "taxes_on_payroll_and_workforce": 20892488.5,
+      "taxes_on_property": 21237713.42,
+      "domestic_taxes_on_goods_and_services": 579990059.7,
+      "taxes_on_international_trade_and_transactions": 76067768.49,
+      "other_taxes": 0,
+      "state_miscellaneous_revenue": 4093.2186
+    },
+    {
+      "category": "2023/24",
+      "taxes_on_income_and_profits": 997924091.9,
+      "taxes_on_payroll_and_workforce": 22712959.17,
+      "taxes_on_property": 19485594.69,
+      "domestic_taxes_on_goods_and_services": 616951364.5,
+      "taxes_on_international_trade_and_transactions": 74278666.99,
+      "other_taxes": 0,
+      "state_miscellaneous_revenue": 0
+    }
+  ],
+  "nonTaxRevenueBreakdown": [
+    {
+      "category": "",
+      "sales_of_goods_and_services_other_than_capital_assets": 0,
+      "transfers_received": 0,
+      "fines_penalties_and_forfeits": 0,
+      "interest_dividends_and_rent_on_land": 0,
+      "icasa": 0,
+      "competition_commission": 0
+    },
+    {
+      "category": "2006/07",
+      "sales_of_goods_and_services_other_than_capital_assets": 2654047,
+      "transfers_received": 548,
+      "fines_penalties_and_forfeits": 417121,
+      "interest_dividends_and_rent_on_land": 5993025,
+      "icasa": 0,
+      "competition_commission": 0
+    },
+    {
+      "category": "2007/08",
+      "sales_of_goods_and_services_other_than_capital_assets": 2841309,
+      "transfers_received": 4171,
+      "fines_penalties_and_forfeits": 1469019,
+      "interest_dividends_and_rent_on_land": 6851070,
+      "icasa": 0,
+      "competition_commission": 0
+    },
+    {
+      "category": "2008/09",
+      "sales_of_goods_and_services_other_than_capital_assets": 3392687,
+      "transfers_received": 291605,
+      "fines_penalties_and_forfeits": 478895,
+      "interest_dividends_and_rent_on_land": 7524686,
+      "icasa": 0,
+      "competition_commission": 0
+    },
+    {
+      "category": "2009/10",
+      "sales_of_goods_and_services_other_than_capital_assets": 2313946,
+      "transfers_received": 237515,
+      "fines_penalties_and_forfeits": 1698145,
+      "interest_dividends_and_rent_on_land": 3651459,
+      "icasa": 0,
+      "competition_commission": 0
+    },
+    {
+      "category": "2010/11",
+      "sales_of_goods_and_services_other_than_capital_assets": 2334548,
+      "transfers_received": 250895,
+      "fines_penalties_and_forfeits": 1457092,
+      "interest_dividends_and_rent_on_land": 8169730,
+      "icasa": 0,
+      "competition_commission": 0
+    },
+    {
+      "category": "2011/12",
+      "sales_of_goods_and_services_other_than_capital_assets": 2893829,
+      "transfers_received": 360296,
+      "fines_penalties_and_forfeits": 934175,
+      "interest_dividends_and_rent_on_land": 10340305,
+      "icasa": 0,
+      "competition_commission": 0
+    },
+    {
+      "category": "2012/13",
+      "sales_of_goods_and_services_other_than_capital_assets": 2619605,
+      "transfers_received": 571490,
+      "fines_penalties_and_forfeits": 992519,
+      "interest_dividends_and_rent_on_land": 10220073,
+      "icasa": 0,
+      "competition_commission": 0
+    },
+    {
+      "category": "2013/14",
+      "sales_of_goods_and_services_other_than_capital_assets": 1671108,
+      "transfers_received": 422477,
+      "fines_penalties_and_forfeits": 1466193,
+      "interest_dividends_and_rent_on_land": 11171732.26,
+      "icasa": 0,
+      "competition_commission": 0
+    },
+    {
+      "category": "2014/15",
+      "sales_of_goods_and_services_other_than_capital_assets": 1662763,
+      "transfers_received": 549922,
+      "fines_penalties_and_forfeits": 1173935,
+      "interest_dividends_and_rent_on_land": 12102118.52,
+      "icasa": 0,
+      "competition_commission": 0
+    },
+    {
+      "category": "2015/16",
+      "sales_of_goods_and_services_other_than_capital_assets": 2158711,
+      "transfers_received": 530678,
+      "fines_penalties_and_forfeits": 965028,
+      "interest_dividends_and_rent_on_land": 10112539.78,
+      "icasa": 1324583,
+      "competition_commission": 676495
+    },
+    {
+      "category": "2016/17",
+      "sales_of_goods_and_services_other_than_capital_assets": 2546176,
+      "transfers_received": 495915,
+      "fines_penalties_and_forfeits": 666963,
+      "interest_dividends_and_rent_on_land": 11188619.46,
+      "icasa": 1168589,
+      "competition_commission": 247982
+    },
+    {
+      "category": "2017/18",
+      "sales_of_goods_and_services_other_than_capital_assets": 2588718,
+      "transfers_received": 330504,
+      "fines_penalties_and_forfeits": 466043,
+      "interest_dividends_and_rent_on_land": 12725550.15,
+      "icasa": 1318423,
+      "competition_commission": 2001
+    },
+    {
+      "category": "2018/19",
+      "sales_of_goods_and_services_other_than_capital_assets": 2320697,
+      "transfers_received": 386234,
+      "fines_penalties_and_forfeits": 1751945,
+      "interest_dividends_and_rent_on_land": 16845116,
+      "icasa": 1397634,
+      "competition_commission": 1369239
+    },
+    {
+      "category": "2019/20",
+      "sales_of_goods_and_services_other_than_capital_assets": 2714925.72,
+      "transfers_received": 388398,
+      "fines_penalties_and_forfeits": 367146,
+      "interest_dividends_and_rent_on_land": 20985598,
+      "icasa": 1479589,
+      "competition_commission": 0
+    },
+    {
+      "category": "2020/21",
+      "sales_of_goods_and_services_other_than_capital_assets": 1610615,
+      "transfers_received": 422588,
+      "fines_penalties_and_forfeits": 563495,
+      "interest_dividends_and_rent_on_land": 20927165,
+      "icasa": 1504974,
+      "competition_commission": 209625
+    },
+    {
+      "category": "2021/22",
+      "sales_of_goods_and_services_other_than_capital_assets": 2821922,
+      "transfers_received": 363953,
+      "fines_penalties_and_forfeits": 428113,
+      "interest_dividends_and_rent_on_land": 33880409,
+      "icasa": 1833615,
+      "competition_commission": 156964
+    },
+    {
+      "category": "2022/23",
+      "sales_of_goods_and_services_other_than_capital_assets": 4003771.313,
+      "transfers_received": 639965,
+      "fines_penalties_and_forfeits": 543527.4531,
+      "interest_dividends_and_rent_on_land": 33805137.69,
+      "icasa": 10179509,
+      "competition_commission": 172290
+    },
+    {
+      "category": "2023/24",
+      "sales_of_goods_and_services_other_than_capital_assets": 2774868,
+      "transfers_received": 661065,
+      "fines_penalties_and_forfeits": 578902,
+      "interest_dividends_and_rent_on_land": 23136285.89,
+      "icasa": 7897446,
+      "competition_commission": 190500
+    }
+  ],
+  "vatRevenueBreakdown": [
+    {
+      "category": "",
+      "domestic_vat": 0,
+      "import_vat": 0,
+      "refunds": 0
+    },
+    {
+      "category": "2006/07",
+      "domestic_vat": 0,
+      "import_vat": 0,
+      "refunds": 0
+    },
+    {
+      "category": "2007/08",
+      "domestic_vat": 0,
+      "import_vat": 0,
+      "refunds": 0
+    },
+    {
+      "category": "2008/09",
+      "domestic_vat": 0,
+      "import_vat": 0,
+      "refunds": 0
+    },
+    {
+      "category": "2009/10",
+      "domestic_vat": 195049764,
+      "import_vat": 70319949,
+      "refunds": -117428391
+    },
+    {
+      "category": "2010/11",
+      "domestic_vat": 205028785.7,
+      "import_vat": 82188620.55,
+      "refunds": -103645966.8
+    },
+    {
+      "category": "2011/12",
+      "domestic_vat": 220215115.3,
+      "import_vat": 101812695.9,
+      "refunds": -131007612.7
+    },
+    {
+      "category": "2012/13",
+      "domestic_vat": 242416471.1,
+      "import_vat": 111426922.7,
+      "refunds": -138820358.6
+    },
+    {
+      "category": "2013/14",
+      "domestic_vat": 263460912.8,
+      "import_vat": 131084644.3,
+      "refunds": -156878978
+    },
+    {
+      "category": "2014/15",
+      "domestic_vat": 286775611.6,
+      "import_vat": 136544383.6,
+      "refunds": -162025207
+    },
+    {
+      "category": "2015/16",
+      "domestic_vat": 297422423.4,
+      "import_vat": 150744532.8,
+      "refunds": -167055546
+    },
+    {
+      "category": "2016/17",
+      "domestic_vat": 321475499.3,
+      "import_vat": 149265484.3,
+      "refunds": -181574261
+    },
+    {
+      "category": "2017/18",
+      "domestic_vat": 336279470.2,
+      "import_vat": 152788760.4,
+      "refunds": -191070644
+    },
+    {
+      "category": "2018/19",
+      "domestic_vat": 378732651.4,
+      "import_vat": 175184585.3,
+      "refunds": -229151259
+    },
+    {
+      "category": "2019/20",
+      "domestic_vat": 399288366.5,
+      "import_vat": 179987356.6,
+      "refunds": -232514956
+    },
+    {
+      "category": "2020/21",
+      "domestic_vat": 392935789.9,
+      "import_vat": 166454472.5,
+      "refunds": -228193414
+    },
+    {
+      "category": "2021/22",
+      "domestic_vat": 448760190,
+      "import_vat": 204551808.4,
+      "refunds": -262416899
+    },
+    {
+      "category": "2022/23",
+      "domestic_vat": 486437225.2,
+      "import_vat": 254984017.6,
+      "refunds": -319004844
+    },
+    {
+      "category": "2023/24",
+      "domestic_vat": 525579076.9,
+      "import_vat": 270614002.9,
+      "refunds": -350852660
+    }
+  ],
+  "exciseDutyRevenueBreakdown": [
+    {
+      "category": "",
+      "beer": 0,
+      "sorghum_beer_and_sorghum_flour": 0,
+      "wine_and_other_fermented_beverages": 0,
+      "spirits": 0,
+      "cigarettes_and_cigarette_tobacco": 0,
+      "pipe_tobacco_and_cigars": 0,
+      "petroleum_products": 0,
+      "revenue_from_neighbouring_countries": 0
+    },
+    {
+      "category": "2006/07",
+      "beer": 4795442,
+      "sorghum_beer_and_sorghum_flour": 43357,
+      "wine_and_other_fermented_beverages": 1031611,
+      "spirits": 2016802,
+      "cigarettes_and_cigarette_tobacco": 6783519,
+      "pipe_tobacco_and_cigars": 410079,
+      "petroleum_products": 846609,
+      "revenue_from_neighbouring_countries": 441978
+    },
+    {
+      "category": "2007/08",
+      "beer": 5141862,
+      "sorghum_beer_and_sorghum_flour": 34675,
+      "wine_and_other_fermented_beverages": 1253881,
+      "spirits": 2364130,
+      "cigarettes_and_cigarette_tobacco": 7665368,
+      "pipe_tobacco_and_cigars": 379064,
+      "petroleum_products": 901269,
+      "revenue_from_neighbouring_countries": 478198
+    },
+    {
+      "category": "2008/09",
+      "beer": 5514810,
+      "sorghum_beer_and_sorghum_flour": 38240,
+      "wine_and_other_fermented_beverages": 1358440,
+      "spirits": 2511160,
+      "cigarettes_and_cigarette_tobacco": 8659210,
+      "pipe_tobacco_and_cigars": 596030,
+      "petroleum_products": 880630,
+      "revenue_from_neighbouring_countries": 626020
+    },
+    {
+      "category": "2009/10",
+      "beer": 5738163.825,
+      "sorghum_beer_and_sorghum_flour": 34393.7761,
+      "wine_and_other_fermented_beverages": 1482516.573,
+      "spirits": 2790309.064,
+      "cigarettes_and_cigarette_tobacco": 9187982.2,
+      "pipe_tobacco_and_cigars": 482195.4915,
+      "petroleum_products": 872700.5198,
+      "revenue_from_neighbouring_countries": 701016.9856
+    },
+    {
+      "category": "2010/11",
+      "beer": 7006914.715,
+      "sorghum_beer_and_sorghum_flour": 35959.35312,
+      "wine_and_other_fermented_beverages": 1494710.127,
+      "spirits": 2831005.054,
+      "cigarettes_and_cigarette_tobacco": 9367943.655,
+      "pipe_tobacco_and_cigars": 485744.7937,
+      "petroleum_products": 917927.0698,
+      "revenue_from_neighbouring_countries": 827409.0946
+    },
+    {
+      "category": "2011/12",
+      "beer": 7602586.077,
+      "sorghum_beer_and_sorghum_flour": 33743.31954,
+      "wine_and_other_fermented_beverages": 1875112.04,
+      "spirits": 3399455.663,
+      "cigarettes_and_cigarette_tobacco": 10172151.08,
+      "pipe_tobacco_and_cigars": 628819.6371,
+      "petroleum_products": 924432.6772,
+      "revenue_from_neighbouring_countries": 774847.2873
+    },
+    {
+      "category": "2012/13",
+      "beer": 8444749.128,
+      "sorghum_beer_and_sorghum_flour": 26363.31868,
+      "wine_and_other_fermented_beverages": 2053457.589,
+      "spirits": 4257561.643,
+      "cigarettes_and_cigarette_tobacco": 10978223.4,
+      "pipe_tobacco_and_cigars": 637862.9603,
+      "petroleum_products": 929222.0816,
+      "revenue_from_neighbouring_countries": 1050270.783
+    },
+    {
+      "category": "2013/14",
+      "beer": 9177265.581,
+      "sorghum_beer_and_sorghum_flour": 8944.58277,
+      "wine_and_other_fermented_beverages": 2263438.556,
+      "spirits": 4007479.626,
+      "cigarettes_and_cigarette_tobacco": 10910866.03,
+      "pipe_tobacco_and_cigars": 546048.2985,
+      "petroleum_products": 945323.2736,
+      "revenue_from_neighbouring_countries": 1180102.678
+    },
+    {
+      "category": "2014/15",
+      "beer": 10177140.51,
+      "sorghum_beer_and_sorghum_flour": 3895.07042,
+      "wine_and_other_fermented_beverages": 2357752.242,
+      "spirits": 4676598.663,
+      "cigarettes_and_cigarette_tobacco": 12601924.95,
+      "pipe_tobacco_and_cigars": 537692.0646,
+      "petroleum_products": 910644.2028,
+      "revenue_from_neighbouring_countries": 1067952.697
+    },
+    {
+      "category": "2015/16",
+      "beer": 10883223.03,
+      "sorghum_beer_and_sorghum_flour": 3474.47552,
+      "wine_and_other_fermented_beverages": 2897035.301,
+      "spirits": 5310332.314,
+      "cigarettes_and_cigarette_tobacco": 13006689.7,
+      "pipe_tobacco_and_cigars": 566385.0246,
+      "petroleum_products": 922233.5978,
+      "revenue_from_neighbouring_countries": 1487355.524
+    },
+    {
+      "category": "2016/17",
+      "beer": 11713340.41,
+      "sorghum_beer_and_sorghum_flour": 4125.67185,
+      "wine_and_other_fermented_beverages": 3163411.48,
+      "spirits": 5853934.99,
+      "cigarettes_and_cigarette_tobacco": 12120468.03,
+      "pipe_tobacco_and_cigars": 518718.2861,
+      "petroleum_products": 871083.7101,
+      "revenue_from_neighbouring_countries": 1528744.964
+    },
+    {
+      "category": "2017/18",
+      "beer": 13172996.31,
+      "sorghum_beer_and_sorghum_flour": 3917.67391,
+      "wine_and_other_fermented_beverages": 3771582.832,
+      "spirits": 6442618.673,
+      "cigarettes_and_cigarette_tobacco": 11067421.9,
+      "pipe_tobacco_and_cigars": 429270.6044,
+      "petroleum_products": 829790.1126,
+      "revenue_from_neighbouring_countries": 1638276.551
+    },
+    {
+      "category": "2018/19",
+      "beer": 13781537.35,
+      "sorghum_beer_and_sorghum_flour": 4129.50651,
+      "wine_and_other_fermented_beverages": 4452994.912,
+      "spirits": 7759815.074,
+      "cigarettes_and_cigarette_tobacco": 12090765.13,
+      "pipe_tobacco_and_cigars": 412909.8361,
+      "petroleum_products": 838361.7502,
+      "revenue_from_neighbouring_countries": 1489176.456
+    },
+    {
+      "category": "2019/20",
+      "beer": 15524758.65,
+      "sorghum_beer_and_sorghum_flour": 4365.85778,
+      "wine_and_other_fermented_beverages": 4574469.021,
+      "spirits": 8994733.592,
+      "cigarettes_and_cigarette_tobacco": 13969781.73,
+      "pipe_tobacco_and_cigars": 495694.3049,
+      "petroleum_products": 825672.585,
+      "revenue_from_neighbouring_countries": 2437098.279
+    },
+    {
+      "category": "2020/21",
+      "beer": 11020597.44,
+      "sorghum_beer_and_sorghum_flour": 3496.13708,
+      "wine_and_other_fermented_beverages": 3442571.911,
+      "spirits": 7642522.069,
+      "cigarettes_and_cigarette_tobacco": 7536755.175,
+      "pipe_tobacco_and_cigars": 438049.108,
+      "petroleum_products": 685487.9428,
+      "revenue_from_neighbouring_countries": 1503551.011
+    },
+    {
+      "category": "2021/22",
+      "beer": 19957814.06,
+      "sorghum_beer_and_sorghum_flour": 4808.32666,
+      "wine_and_other_fermented_beverages": 6112700.149,
+      "spirits": 11308512.48,
+      "cigarettes_and_cigarette_tobacco": 8958629.784,
+      "pipe_tobacco_and_cigars": 413154.3351,
+      "petroleum_products": 745552.0478,
+      "revenue_from_neighbouring_countries": 2203959.133
+    },
+    {
+      "category": "2022/23",
+      "beer": 21370187.92,
+      "sorghum_beer_and_sorghum_flour": 4485.72473,
+      "wine_and_other_fermented_beverages": 6921527.643,
+      "spirits": 13174704.34,
+      "cigarettes_and_cigarette_tobacco": 10188504.77,
+      "pipe_tobacco_and_cigars": 402908.23,
+      "petroleum_products": 704936.741,
+      "revenue_from_neighbouring_countries": 2387443.231
+    },
+    {
+      "category": "2023/24",
+      "beer": 21657151.03,
+      "sorghum_beer_and_sorghum_flour": 7968.641603,
+      "wine_and_other_fermented_beverages": 6949190.573,
+      "spirits": 12644415.88,
+      "cigarettes_and_cigarette_tobacco": 9044014.75,
+      "pipe_tobacco_and_cigars": 414798.1997,
+      "petroleum_products": 1134490.686,
+      "revenue_from_neighbouring_countries": 2089711.512
+    }
+  ],
+  "taxesOnGoodsOrPermissionToUseRevenueBreakdown": [
+    {
+      "category": "",
+      "air_departure_tax": 0,
+      "plastic_bag_levy": 0,
+      "electricity_levy": 0,
+      "incandescent_light_bulb_levy": 0,
+      "co2_tax___motor_vehicle_emissions": 0,
+      "tyre_levy": 0,
+      "international_oil_pollution_compensation_fund": 0,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 0
+    },
+    {
+      "category": "2006/07",
+      "air_departure_tax": 484823,
+      "plastic_bag_levy": 75128,
+      "electricity_levy": 0,
+      "incandescent_light_bulb_levy": 0,
+      "co2_tax___motor_vehicle_emissions": 0,
+      "tyre_levy": 0,
+      "international_oil_pollution_compensation_fund": 0,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 0
+    },
+    {
+      "category": "2007/08",
+      "air_departure_tax": 540635,
+      "plastic_bag_levy": 86314,
+      "electricity_levy": 0,
+      "incandescent_light_bulb_levy": 0,
+      "co2_tax___motor_vehicle_emissions": 0,
+      "tyre_levy": 0,
+      "international_oil_pollution_compensation_fund": 0,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 0
+    },
+    {
+      "category": "2008/09",
+      "air_departure_tax": 549365,
+      "plastic_bag_levy": 78563,
+      "electricity_levy": 0,
+      "incandescent_light_bulb_levy": 0,
+      "co2_tax___motor_vehicle_emissions": 0,
+      "tyre_levy": 0,
+      "international_oil_pollution_compensation_fund": 0,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 0
+    },
+    {
+      "category": "2009/10",
+      "air_departure_tax": 580326.0835,
+      "plastic_bag_levy": 110510.0575,
+      "electricity_levy": 3341691.172,
+      "incandescent_light_bulb_levy": 63879.96135,
+      "co2_tax___motor_vehicle_emissions": 0,
+      "tyre_levy": 0,
+      "international_oil_pollution_compensation_fund": 0,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 6493.21393
+    },
+    {
+      "category": "2010/11",
+      "air_departure_tax": 647809.665,
+      "plastic_bag_levy": 258222.4549,
+      "electricity_levy": 4996365.538,
+      "incandescent_light_bulb_levy": 151082.5092,
+      "co2_tax___motor_vehicle_emissions": 625890.7725,
+      "tyre_levy": 0,
+      "international_oil_pollution_compensation_fund": 0,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 2801.95498
+    },
+    {
+      "category": "2011/12",
+      "air_departure_tax": 762416.2329,
+      "plastic_bag_levy": 53832.49403,
+      "electricity_levy": 6429721,
+      "incandescent_light_bulb_levy": 143787.1909,
+      "co2_tax___motor_vehicle_emissions": 1617352.581,
+      "tyre_levy": 0,
+      "international_oil_pollution_compensation_fund": 0,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 5703.07821
+    },
+    {
+      "category": "2012/13",
+      "air_departure_tax": 873060.4579,
+      "plastic_bag_levy": 150816.5844,
+      "electricity_levy": 7983940.437,
+      "incandescent_light_bulb_levy": 136791.7902,
+      "co2_tax___motor_vehicle_emissions": 1567381.655,
+      "tyre_levy": 0,
+      "international_oil_pollution_compensation_fund": 0,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 11318.53797
+    },
+    {
+      "category": "2013/14",
+      "air_departure_tax": 878697.4605,
+      "plastic_bag_levy": 169243.2099,
+      "electricity_levy": 8818930.063,
+      "incandescent_light_bulb_levy": 71801.7779,
+      "co2_tax___motor_vehicle_emissions": 1711178.593,
+      "tyre_levy": 0,
+      "international_oil_pollution_compensation_fund": 0,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 17461.20304
+    },
+    {
+      "category": "2014/15",
+      "air_departure_tax": 906575.1803,
+      "plastic_bag_levy": 174297.6192,
+      "electricity_levy": 8648170.215,
+      "incandescent_light_bulb_levy": 90877.17325,
+      "co2_tax___motor_vehicle_emissions": 1483337.429,
+      "tyre_levy": 0,
+      "international_oil_pollution_compensation_fund": 0,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 17308.84132
+    },
+    {
+      "category": "2015/16",
+      "air_departure_tax": 941226.0588,
+      "plastic_bag_levy": 183328.4392,
+      "electricity_levy": 8471774,
+      "incandescent_light_bulb_levy": 51800.8317,
+      "co2_tax___motor_vehicle_emissions": 1276835.193,
+      "tyre_levy": 0,
+      "international_oil_pollution_compensation_fund": 0,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 22877.77479
+    },
+    {
+      "category": "2016/17",
+      "air_departure_tax": 1003904.356,
+      "plastic_bag_levy": 231874.9336,
+      "electricity_levy": 8457668.358,
+      "incandescent_light_bulb_levy": 70206.47431,
+      "co2_tax___motor_vehicle_emissions": 1208520.89,
+      "tyre_levy": 77242.37261,
+      "international_oil_pollution_compensation_fund": 803.42867,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 23338.70622
+    },
+    {
+      "category": "2017/18",
+      "air_departure_tax": 1086040.273,
+      "plastic_bag_levy": 241295.027,
+      "electricity_levy": 8500969.68,
+      "incandescent_light_bulb_levy": 55358.77064,
+      "co2_tax___motor_vehicle_emissions": 1336817.963,
+      "tyre_levy": 715996.8077,
+      "international_oil_pollution_compensation_fund": 3018.60154,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 33504.10493
+    },
+    {
+      "category": "2018/19",
+      "air_departure_tax": 1082862.256,
+      "plastic_bag_levy": 300394.7908,
+      "electricity_levy": 8403962.071,
+      "incandescent_light_bulb_levy": 40719.25095,
+      "co2_tax___motor_vehicle_emissions": 1390472.306,
+      "tyre_levy": 730203.7448,
+      "international_oil_pollution_compensation_fund": 5481.25137,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 12938.36784
+    },
+    {
+      "category": "2019/20",
+      "air_departure_tax": 1068258.392,
+      "plastic_bag_levy": 317897.4074,
+      "electricity_levy": 8290675.608,
+      "incandescent_light_bulb_levy": 33963.09989,
+      "co2_tax___motor_vehicle_emissions": 1327417.477,
+      "tyre_levy": 708018.0634,
+      "international_oil_pollution_compensation_fund": 3093.03305,
+      "carbon_tax": 0,
+      "turnover_tax_for_micro_businesses": 8449.88042
+    },
+    {
+      "category": "2020/21",
+      "air_departure_tax": 138464.9073,
+      "plastic_bag_levy": 581434.0689,
+      "electricity_levy": 7739339.642,
+      "incandescent_light_bulb_levy": 24880.67954,
+      "co2_tax___motor_vehicle_emissions": 1469581.714,
+      "tyre_levy": 601142.7483,
+      "international_oil_pollution_compensation_fund": 2670.9128,
+      "carbon_tax": 650373.7709,
+      "turnover_tax_for_micro_businesses": 8512.55559
+    },
+    {
+      "category": "2021/22",
+      "air_departure_tax": 285087.8813,
+      "plastic_bag_levy": 658216.2282,
+      "electricity_levy": 7890564.636,
+      "incandescent_light_bulb_levy": 23344.7456,
+      "co2_tax___motor_vehicle_emissions": 2173480.78,
+      "tyre_levy": 714926.799,
+      "international_oil_pollution_compensation_fund": 0,
+      "carbon_tax": 1397618.05,
+      "turnover_tax_for_micro_businesses": 8793.03741
+    },
+    {
+      "category": "2022/23",
+      "air_departure_tax": 788581.8548,
+      "plastic_bag_levy": 679817.79,
+      "electricity_levy": 7374435.737,
+      "incandescent_light_bulb_levy": 24181.6941,
+      "co2_tax___motor_vehicle_emissions": 2929578.969,
+      "tyre_levy": 745272.937,
+      "international_oil_pollution_compensation_fund": 0,
+      "carbon_tax": 1590393.725,
+      "turnover_tax_for_micro_businesses": 12138.62263
+    },
+    {
+      "category": "2023/24",
+      "air_departure_tax": 885984.0839,
+      "plastic_bag_levy": 655642.2587,
+      "electricity_levy": 6979092.477,
+      "incandescent_light_bulb_levy": 19929.10326,
+      "co2_tax___motor_vehicle_emissions": 2775942.753,
+      "tyre_levy": 755152.5987,
+      "international_oil_pollution_compensation_fund": 2500,
+      "carbon_tax": 2080723.074,
+      "turnover_tax_for_micro_businesses": 8539.146918
+    }
+  ],
+  "otherInterestingRevenueBreakdown": [
+    {
+      "category": "",
+      "ad_valorem_excise_duties": 0,
+      "fuel_levy": 0,
+      "customs_duties": 0
+    },
+    {
+      "category": "2006/07",
+      "ad_valorem_excise_duties": 1282664,
+      "fuel_levy": 21844641,
+      "customs_duties": 23697003
+    },
+    {
+      "category": "2007/08",
+      "ad_valorem_excise_duties": 1480454,
+      "fuel_levy": 23740511,
+      "customs_duties": 26469876
+    },
+    {
+      "category": "2008/09",
+      "ad_valorem_excise_duties": 1169529,
+      "fuel_levy": 24883776,
+      "customs_duties": 22751022
+    },
+    {
+      "category": "2009/10",
+      "ad_valorem_excise_duties": 1275941.987,
+      "fuel_levy": 28832536.45,
+      "customs_duties": 19577114.63
+    },
+    {
+      "category": "2010/11",
+      "ad_valorem_excise_duties": 1596228.52,
+      "fuel_levy": 34417576.67,
+      "customs_duties": 26637437.79
+    },
+    {
+      "category": "2011/12",
+      "ad_valorem_excise_duties": 1828346.873,
+      "fuel_levy": 36602263.22,
+      "customs_duties": 34197900.63
+    },
+    {
+      "category": "2012/13",
+      "ad_valorem_excise_duties": 2231940.639,
+      "fuel_levy": 40410388.91,
+      "customs_duties": 38997933.41
+    },
+    {
+      "category": "2013/14",
+      "ad_valorem_excise_duties": 2363310.396,
+      "fuel_levy": 43684653.62,
+      "customs_duties": 44178728.26
+    },
+    {
+      "category": "2014/15",
+      "ad_valorem_excise_duties": 2962254.673,
+      "fuel_levy": 48466532.35,
+      "customs_duties": 40678794.85
+    },
+    {
+      "category": "2015/16",
+      "ad_valorem_excise_duties": 3014050.811,
+      "fuel_levy": 0,
+      "customs_duties": 46250125.48
+    },
+    {
+      "category": "2016/17",
+      "ad_valorem_excise_duties": 3396164.363,
+      "fuel_levy": 62778833.79,
+      "customs_duties": 45579082.85
+    },
+    {
+      "category": "2017/18",
+      "ad_valorem_excise_duties": 3780886.942,
+      "fuel_levy": 70948575.53,
+      "customs_duties": 49151743.46
+    },
+    {
+      "category": "2018/19",
+      "ad_valorem_excise_duties": 4191871.181,
+      "fuel_levy": 75372226.09,
+      "customs_duties": 54968075.62
+    },
+    {
+      "category": "2019/20",
+      "ad_valorem_excise_duties": 4124241.256,
+      "fuel_levy": 80175160.06,
+      "customs_duties": 55428360.09
+    },
+    {
+      "category": "2020/21",
+      "ad_valorem_excise_duties": 3385506.511,
+      "fuel_levy": 75502814.37,
+      "customs_duties": 47290374.7
+    },
+    {
+      "category": "2021/22",
+      "ad_valorem_excise_duties": 4725139.52,
+      "fuel_levy": 88889069.8,
+      "customs_duties": 57993758.06
+    },
+    {
+      "category": "2022/23",
+      "ad_valorem_excise_duties": 5520495.025,
+      "fuel_levy": 80472844.28,
+      "customs_duties": 73945639.42
+    },
+    {
+      "category": "2023/24",
+      "ad_valorem_excise_duties": 7782257.06,
+      "fuel_levy": 93371937.51,
+      "customs_duties": 72492158.64
+    }
+  ]
+}

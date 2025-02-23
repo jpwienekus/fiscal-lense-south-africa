@@ -14,54 +14,57 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import jsonData from '@/data/parsed/revenue-breakdown.json'
 import { formatTotalTooltip } from "./tooltips/total-tooltip"
-import { Link } from "react-router-dom"
-import { SquareArrowOutUpRight } from "lucide-react"
+import { exciseDutyRevenueBreakdown } from '@/data/parsed/detailed-revenue-breakdown.json'
 
 const numberOfYears = 10
-const chartData = jsonData.slice(numberOfYears * -1)
+const chartData = exciseDutyRevenueBreakdown.slice(numberOfYears * -1)
 const latestYear = chartData[chartData.length - 1]
 const firstYear = chartData[0].category
 const lastYear = latestYear.category
 
 const chartConfig = {
-  tax_revenue__gross_: {
-    label: "Tax revenue (gross)",
+  beer: {
+    label: "Beer",
     color: "var(--chart-1)"
   },
-  less__sacu_payments: {
-    label: "Less: SACU payments",
+  sorghum_beer_and_sorghum_flour: {
+    label: "Sorghum beer and sorghum flour",
     color: "var(--chart-2)"
   },
-  other_adjustment: {
-    label: "Other adjustment",
+  wine_and_other_fermented_beverages: {
+    label: "Wine and other fermented beverages",
     color: "var(--chart-3)"
   },
-  non_tax_revenue__departmental_receipts_: {
-    label: "Non-tax revenue (departmental receipts)",
+  spirits: {
+    label: "Spirits",
     color: "var(--chart-4)"
   },
-  financial_transactions_in_assets_and_liabilities: {
-    label: "Financial transactions in assets and liabilities",
+  cigarettes_and_cigarette_tobacco: {
+    label: "Cigarettes and cigarette tobacco",
     color: "var(--chart-5)"
   },
-  sales_of_capital_assets: {
-    label: "Sales of capital assets",
+  pipe_tobacco_and_cigars: {
+    label: "Pipe tobacco and cigars",
     color: "var(--chart-6)"
+  },
+  petroleum_products: {
+    label: "Petroleum producst",
+    color: "var(--chart-7)"
+  },
+  revenue_from_neighbouring_countries: {
+    label: "Revenue from neighbouring countries",
+    color: "var(--chart-8)"
   },
 } satisfies ChartConfig
 
-export function RevenueBreakdownChart() {
+export function ExciseDutyRevenueBreakdownChart() {
   return (
     <Card>
       <CardHeader>
         <CardTitle>
           <span className="flex">
-            Revenue Breakdown
-            <Link to="/national-revenue-breakdown">
-              <SquareArrowOutUpRight className="px-1" height={10}/>
-            </Link>
+            Excise Duty Revenue Breakdown
           </span>
         </CardTitle>
         <CardDescription>{firstYear} - {lastYear}</CardDescription>
