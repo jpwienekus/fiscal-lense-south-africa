@@ -1,10 +1,8 @@
-import { TrendingUp, TrendingDown } from "lucide-react"
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -17,24 +15,23 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 import jsonData from '@/data/parsed/revenue-expenses.json'
+import { formatTotalTooltip } from "./tooltips/total-tooltip"
 
-const chartData = jsonData.revenueVsExpenses
+const chartData = jsonData.slice(-10)
 
 const latestYear = chartData[chartData.length - 1]
-const trend = Number(((latestYear.revenue - latestYear.expenses) / latestYear.expenses * 100).toFixed(2))
 const firstYear = chartData[0].category
 const lastYear = latestYear.category
 
 const chartConfig = {
   revenue: {
     label: "Revenue",
+    color: "var(--chart-1)"
   },
   expenses: {
     label: "Expenses",
+    color: "var(--chart-2)"
   },
-  shortfall: {
-    label: "Shortfall"
-  }
 } satisfies ChartConfig
 
 export function RevenueExpensesChart() {
@@ -46,12 +43,13 @@ export function RevenueExpensesChart() {
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <LineChart
+
+          <AreaChart
             accessibilityLayer
             data={chartData}
             margin={{
-              left: 12,
-              right: 12,
+              left: 5,
+              right: 5,
             }}
           >
             <CartesianGrid vertical={false} />
@@ -59,48 +57,70 @@ export function RevenueExpensesChart() {
               dataKey="category"
               tickLine={false}
               axisLine={false}
-              tickMargin={10}
+              interval={0}
+              angle={-45}
+              textAnchor="end"
             />
-            <YAxis 
+            <YAxis
               tickLine={false}
               axisLine={false}
               tickMargin={10}
             />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent indicator="line" />}
+              content={
+                <ChartTooltipContent
+                  className="w-[250px]"
+                  formatter={(value, name, item, index) => formatTotalTooltip(value, name, item, index, chartConfig, true)}
+                />
+              }
             />
-            <Line
+
+            <defs>
+              <linearGradient id="fillRevenue" x1="0" y1="0" x2="0" y2="1">
+                <stop
+                  offset="5%"
+                  stopColor="var(--color-revenue)"
+                  stopOpacity={0.8}
+                />
+                <stop
+                  offset="95%"
+                  stopColor="var(--color-revenue)"
+                  stopOpacity={0.1}
+                />
+              </linearGradient>
+              <linearGradient id="fillExpenses" x1="0" y1="0" x2="0" y2="1">
+                <stop
+                  offset="5%"
+                  stopColor="var(--color-expenses)"
+                  stopOpacity={0.8}
+                />
+                <stop
+                  offset="95%"
+                  stopColor="var(--color-expenses)"
+                  stopOpacity={0.1}
+                />
+              </linearGradient>
+            </defs>
+
+            <Area
               dataKey="revenue"
               type="natural"
-              fill="var(--chart-1)"
+              fill="url(#fillRevenue)"
               fillOpacity={0.4}
-              stroke="var(--chart-1)"
+              stroke="var(--color-revenue)"
             />
-            <Line
+            <Area
               dataKey="expenses"
               type="natural"
-              fill="var(--chart-2)"
+              fill="url(#fillExpenses)"
               fillOpacity={0.4}
-              stroke="var(--chart-2)"
+              stroke="var(--color-expenses)"
             />
-            <Line
-              dataKey="shortfall"
-              type="natural"
-              fill="var(--chart-3)"
-              fillOpacity={0.4}
-              stroke="var(--chart-3)"
-            />
-            <ChartLegend content={<ChartLegendContent />} />
-          </LineChart>
+            <ChartLegend content={<ChartLegendContent className="flex flex-row justify-center items-center gap-4 pt-6"/>} />
+          </AreaChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="flex gap-2 font-medium leading-none">
-          Trending {trend > 0 ? 'up' : 'down'} by {Math.abs(trend)}% this year 
-          {trend > 0 ? <TrendingUp className="h-4 w-4" /> : <TrendingDown className="h-4 w-4" />}
-        </div>
-      </CardFooter>
     </Card>
   )
 }

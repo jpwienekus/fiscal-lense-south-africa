@@ -1,0 +1,209 @@
+[
+  {
+    "category": "2001/02",
+    "tax_revenue__gross_": 252294.984,
+    "less__sacu_payments": -8204.8,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 4090.88,
+    "financial_transactions_in_assets_and_liabilities": 4236.3,
+    "sales_of_capital_assets": 4.2
+  },
+  {
+    "category": "2002/03",
+    "tax_revenue__gross_": 281939.315,
+    "less__sacu_payments": -8259.4,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 4462.256,
+    "financial_transactions_in_assets_and_liabilities": 8475.6,
+    "sales_of_capital_assets": 57.8
+  },
+  {
+    "category": "2003/04",
+    "tax_revenue__gross_": 302442.551,
+    "less__sacu_payments": -9722.7,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 5996.403,
+    "financial_transactions_in_assets_and_liabilities": 2296.641,
+    "sales_of_capital_assets": 16.493
+  },
+  {
+    "category": "2004/05",
+    "tax_revenue__gross_": 354978.848,
+    "less__sacu_payments": -13327.8,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 5504.108,
+    "financial_transactions_in_assets_and_liabilities": 3161.1,
+    "sales_of_capital_assets": 30.186
+  },
+  {
+    "category": "2005/06",
+    "tax_revenue__gross_": 417195.718,
+    "less__sacu_payments": -14144.9,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 7780.574,
+    "financial_transactions_in_assets_and_liabilities": 7742.426,
+    "sales_of_capital_assets": 79.3
+  },
+  {
+    "category": "2006/07",
+    "tax_revenue__gross_": 495548.614,
+    "less__sacu_payments": -25194.9,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 9064.793,
+    "financial_transactions_in_assets_and_liabilities": 5177.807,
+    "sales_of_capital_assets": 38.8
+  },
+  {
+    "category": "2007/08",
+    "tax_revenue__gross_": 572814.634,
+    "less__sacu_payments": -24712.6,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 11165.469,
+    "financial_transactions_in_assets_and_liabilities": 3146.71,
+    "sales_of_capital_assets": 230.2
+  },
+  {
+    "category": "2008/09",
+    "tax_revenue__gross_": 625100.1665,
+    "less__sacu_payments": -28920.6,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 11687.941,
+    "financial_transactions_in_assets_and_liabilities": 9000.467,
+    "sales_of_capital_assets": 131.2
+  },
+  {
+    "category": "2009/10",
+    "tax_revenue__gross_": 598705.4435,
+    "less__sacu_payments": -27915.4,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 7901.094,
+    "financial_transactions_in_assets_and_liabilities": 7385.693,
+    "sales_of_capital_assets": 36.263
+  },
+  {
+    "category": "2010/11",
+    "tax_revenue__gross_": 674183.1469,
+    "less__sacu_payments": -14991.3,
+    "other_adjustment": -2914.4,
+    "non_tax_revenue__departmental_receipts_": 12212.265,
+    "financial_transactions_in_assets_and_liabilities": 4226.273,
+    "sales_of_capital_assets": 35.448
+  },
+  {
+    "category": "2011/12",
+    "tax_revenue__gross_": 742649.7132,
+    "less__sacu_payments": -21760,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 14528.605,
+    "financial_transactions_in_assets_and_liabilities": 9758.163,
+    "sales_of_capital_assets": 114.745
+  },
+  {
+    "category": "2012/13",
+    "tax_revenue__gross_": 813825.8149,
+    "less__sacu_payments": -42151.3,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 14403.85,
+    "financial_transactions_in_assets_and_liabilities": 13969.548,
+    "sales_of_capital_assets": 94.294
+  },
+  {
+    "category": "2013/14",
+    "tax_revenue__gross_": 900014.7205,
+    "less__sacu_payments": -43374.4,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 14731.51026,
+    "financial_transactions_in_assets_and_liabilities": 15957.324,
+    "sales_of_capital_assets": 37.002
+  },
+  {
+    "category": "2014/15",
+    "tax_revenue__gross_": 986295.0192,
+    "less__sacu_payments": -51737.7,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 15489.41452,
+    "financial_transactions_in_assets_and_liabilities": 15332.732,
+    "sales_of_capital_assets": 77.437
+  },
+  {
+    "category": "2015/16",
+    "tax_revenue__gross_": 1069982.618,
+    "less__sacu_payments": -51021.9,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 13766.95678,
+    "financial_transactions_in_assets_and_liabilities": 43387.616,
+    "sales_of_capital_assets": 121.142
+  },
+  {
+    "category": "2016/17",
+    "tax_revenue__gross_": 1144080.987,
+    "less__sacu_payments": -39448.3,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 14897.67346,
+    "financial_transactions_in_assets_and_liabilities": 18224.915,
+    "sales_of_capital_assets": 149.2
+  },
+  {
+    "category": "2017/18",
+    "tax_revenue__gross_": 1216463.874,
+    "less__sacu_payments": -55950.9,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 16110.81515,
+    "financial_transactions_in_assets_and_liabilities": 19540.965,
+    "sales_of_capital_assets": 197.491
+  },
+  {
+    "category": "2018/19",
+    "tax_revenue__gross_": 1287690.241,
+    "less__sacu_payments": -48288.6,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 21303.992,
+    "financial_transactions_in_assets_and_liabilities": 14453.119,
+    "sales_of_capital_assets": 111.917
+  },
+  {
+    "category": "2019/20",
+    "tax_revenue__gross_": 1355766.258,
+    "less__sacu_payments": -50280.3,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 24456.06772,
+    "financial_transactions_in_assets_and_liabilities": 15807.17848,
+    "sales_of_capital_assets": 120.742
+  },
+  {
+    "category": "2020/21",
+    "tax_revenue__gross_": 1249711.235,
+    "less__sacu_payments": -63395.2,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 23523.863,
+    "financial_transactions_in_assets_and_liabilities": 28404.741,
+    "sales_of_capital_assets": 124.134
+  },
+  {
+    "category": "2021/22",
+    "tax_revenue__gross_": 1563754.245,
+    "less__sacu_payments": -45966.2,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 37494.397,
+    "financial_transactions_in_assets_and_liabilities": 8854.02,
+    "sales_of_capital_assets": 136.302
+  },
+  {
+    "category": "2022/23",
+    "tax_revenue__gross_": 1686697.378,
+    "less__sacu_payments": -43683.4,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 38992.40146,
+    "financial_transactions_in_assets_and_liabilities": 17024.91804,
+    "sales_of_capital_assets": 187.256
+  },
+  {
+    "category": "2023/24",
+    "tax_revenue__gross_": 1731352.677,
+    "less__sacu_payments": -79811,
+    "other_adjustment": 0,
+    "non_tax_revenue__departmental_receipts_": 27151.12089,
+    "financial_transactions_in_assets_and_liabilities": 33979.632,
+    "sales_of_capital_assets": 163.117
+  }
+]

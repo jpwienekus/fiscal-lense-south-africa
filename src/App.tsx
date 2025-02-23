@@ -2,7 +2,9 @@ import { BrowserRouter } from "react-router-dom"
 import { ThemeProvider } from "./components/theme-provider"
 import { NavBar } from "./components/nav-bar"
 import { RevenueExpensesChart } from "./components/charts/revenue-expenses"
-import { ExpenseBreakdownChart } from "./components/charts/expense-breakdown"
+import { BorrowingRequirementChart } from "./components/charts/borrowing-requirement"
+import { RevenueBreakdownChart } from "./components/charts/revenue-breakdown"
+import { ExpenseBreakdownChart} from "./components/charts/expense-breakdown"
 
 function App() {
   return (
@@ -22,14 +24,12 @@ function App() {
                   <div className="container flex-1 py-1">
                     <div className="grid grid-cols-2 gap-4">
                       <RevenueExpensesChart />
-                      <div>09</div>
+                      <BorrowingRequirementChart />
+                      <RevenueBreakdownChart />
                       <ExpenseBreakdownChart />
                     </div>
                   </div>
-
                 </div>
-
-
               </main>
             </div>
           </div>

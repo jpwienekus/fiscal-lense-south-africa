@@ -1,124 +1,117 @@
-{
-  "revenueVsExpenses": [
-    {
-      "category": "2001",
-      "revenue": 218575.4,
-      "expenses": 233934
-    },
-    {
-      "category": "2002",
-      "revenue": 252421.5,
-      "expenses": 262904.5
-    },
-    {
-      "category": "2003",
-      "revenue": 286675.6,
-      "expenses": 291524
-    },
-    {
-      "category": "2004",
-      "revenue": 301029.4,
-      "expenses": 328709.2
-    },
-    {
-      "category": "2005",
-      "revenue": 350346.5,
-      "expenses": 368459.4
-    },
-    {
-      "category": "2006",
-      "revenue": 418791.4,
-      "expenses": 416684
-    },
-    {
-      "category": "2007",
-      "revenue": 484635.1,
-      "expenses": 470192.5
-    },
-    {
-      "category": "2008",
-      "revenue": 562644.4,
-      "expenses": 541443.4
-    },
-    {
-      "category": "2009",
-      "revenue": 616999.1,
-      "expenses": 635953.3
-    },
-    {
-      "category": "2010",
-      "revenue": 586113.1,
-      "expenses": 747196.8
-    },
-    {
-      "category": "2011",
-      "revenue": 675665.8,
-      "expenses": 805979.1
-    },
-    {
-      "category": "2012",
-      "revenue": 745291.3,
-      "expenses": 889911.5
-    },
-    {
-      "category": "2013",
-      "revenue": 800142.2,
-      "expenses": 965495.6
-    },
-    {
-      "category": "2014",
-      "revenue": 887366.2,
-      "expenses": 1047758.6
-    },
-    {
-      "category": "2015",
-      "revenue": 965456.9,
-      "expenses": 1131900.1
-    },
-    {
-      "category": "2016",
-      "revenue": 1076236.4,
-      "expenses": 1244622.9
-    },
-    {
-      "category": "2017",
-      "revenue": 1137904.4,
-      "expenses": 1305390.1
-    },
-    {
-      "category": "2018",
-      "revenue": 1196362.3,
-      "expenses": 1404939.9
-    },
-    {
-      "category": "2019",
-      "revenue": 1275270.6,
-      "expenses": 1506605.2
-    },
-    {
-      "category": "2020",
-      "revenue": 1345869.9,
-      "expenses": 1691002.2
-    },
-    {
-      "category": "2021",
-      "revenue": 1238368.7,
-      "expenses": 1789015.8
-    },
-    {
-      "category": "2022",
-      "revenue": 1564272.8,
-      "expenses": 1887279.9
-    },
-    {
-      "category": "2023",
-      "revenue": 1699218.5,
-      "expenses": 2009156.8
-    },
-    {
-      "category": "2024",
-      "revenue": 1800020.3,
-      "expenses": 2044221.6
-    }
-  ]
-}
+[
+  {
+    "category": "2001/02",
+    "revenue": 252421.538,
+    "expenses": 264982.217
+  },
+  {
+    "category": "2002/03",
+    "revenue": 286675.624,
+    "expenses": 299495.261
+  },
+  {
+    "category": "2003/04",
+    "revenue": 301029.391,
+    "expenses": 336109.548
+  },
+  {
+    "category": "2004/05",
+    "revenue": 350346.451,
+    "expenses": 378246.7514
+  },
+  {
+    "category": "2005/06",
+    "revenue": 418653.118,
+    "expenses": 421237.897
+  },
+  {
+    "category": "2006/07",
+    "revenue": 484635.114,
+    "expenses": 474406.17
+  },
+  {
+    "category": "2007/08",
+    "revenue": 562644.446,
+    "expenses": 542219.0473
+  },
+  {
+    "category": "2008/09",
+    "revenue": 616999.1505,
+    "expenses": 640237.4352
+  },
+  {
+    "category": "2009/10",
+    "revenue": 586113.0882,
+    "expenses": 747867.965
+  },
+  {
+    "category": "2010/11",
+    "revenue": 672751.4535,
+    "expenses": 805979.1261
+  },
+  {
+    "category": "2011/12",
+    "revenue": 745291.2622,
+    "expenses": 889911.472
+  },
+  {
+    "category": "2012/13",
+    "revenue": 800142.2309,
+    "expenses": 965495.5721
+  },
+  {
+    "category": "2013/14",
+    "revenue": 887366.1729,
+    "expenses": 1047758.613
+  },
+  {
+    "category": "2014/15",
+    "revenue": 965456.9462,
+    "expenses": 1131900.103
+  },
+  {
+    "category": "2015/16",
+    "revenue": 1076236.424,
+    "expenses": 1244622.868
+  },
+  {
+    "category": "2016/17",
+    "revenue": 1137904.427,
+    "expenses": 1305390.105
+  },
+  {
+    "category": "2017/18",
+    "revenue": 1196362.272,
+    "expenses": 1404939.925
+  },
+  {
+    "category": "2018/19",
+    "revenue": 1275270.633,
+    "expenses": 1506605.187
+  },
+  {
+    "category": "2019/20",
+    "revenue": 1345869.934,
+    "expenses": 1691002.157
+  },
+  {
+    "category": "2020/21",
+    "revenue": 1238368.732,
+    "expenses": 1789015.784
+  },
+  {
+    "category": "2021/22",
+    "revenue": 1564272.752,
+    "expenses": 1887279.934
+  },
+  {
+    "category": "2022/23",
+    "revenue": 1699218.536,
+    "expenses": 2009156.766
+  },
+  {
+    "category": "2023/24",
+    "revenue": 1712835.566,
+    "expenses": 2044221.619
+  }
+]
