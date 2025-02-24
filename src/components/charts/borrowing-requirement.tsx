@@ -16,13 +16,7 @@ import {
 } from "@/components/ui/chart"
 import jsonData from '@/data/parsed/borrowing-requirement.json'
 import { formatTotalTooltip } from "./tooltips/total-tooltip"
-
-const numberOfYears = -10
-
-const chartData = jsonData.slice(numberOfYears)
-const latestYear = chartData[chartData.length - 1]
-const firstYear = chartData[0].category
-const lastYear = latestYear.category
+import { useEffect, useState } from "react"
 
 const chartConfig = {
   main_budget_balance: {
@@ -47,7 +41,34 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function BorrowingRequirementChart() {
+type BorrowingRequirementChartProps = {
+  years: number,
+  topN: number
+}
+
+type ChartData = {
+    category: string;
+    main_budget_balance: number;
+    domestic_long_term_loans: number;
+    foreign_loans: number;
+    eskom_debt_relief_arrangement: number;
+    gfecra_settlement: number;
+}
+
+export function BorrowingRequirementChart({
+  years,
+}: BorrowingRequirementChartProps) {
+  const [data, setData] = useState<ChartData[]>([])
+  const [firstYear, setFirstYear] = useState('')
+  const [lastYear, setLastYear] = useState('')
+
+  useEffect(() => {
+    const parsedData = jsonData.slice(years * -1)
+    setData(parsedData)
+    setFirstYear(parsedData[0].category)
+    setLastYear(parsedData[parsedData.length - 1].category)
+  }, [years])
+
   return (
     <Card>
       <CardHeader>
@@ -58,7 +79,7 @@ export function BorrowingRequirementChart() {
         <ChartContainer config={chartConfig}>
           <BarChart
             accessibilityLayer
-            data={chartData}
+            data={data}
             margin={{
               left: 12,
               right: 12,

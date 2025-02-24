@@ -16,12 +16,7 @@ import {
 } from "@/components/ui/chart"
 import jsonData from '@/data/parsed/revenue-expenses.json'
 import { formatTotalTooltip } from "./tooltips/total-tooltip"
-
-const chartData = jsonData.slice(-10)
-
-const latestYear = chartData[chartData.length - 1]
-const firstYear = chartData[0].category
-const lastYear = latestYear.category
+import { useEffect, useState } from "react"
 
 const chartConfig = {
   revenue: {
@@ -34,7 +29,31 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function RevenueExpensesChart() {
+type RevenueExpensesChartProps = {
+  years: number,
+  topN: number
+}
+
+type ChartData = {
+  category: string;
+  revenue: number;
+  expenses: number;
+}
+
+export function RevenueExpensesChart({
+  years,
+}: RevenueExpensesChartProps) {
+  const [data, setData] = useState<ChartData[]>([])
+  const [firstYear, setFirstYear] = useState('')
+  const [lastYear, setLastYear] = useState('')
+
+  useEffect(() => {
+    const parsedData = jsonData.slice(years * -1)
+    setData(parsedData)
+    setFirstYear(parsedData[0].category)
+    setLastYear(parsedData[parsedData.length - 1].category)
+  }, [years])
+
   return (
     <Card>
       <CardHeader>
@@ -46,7 +65,7 @@ export function RevenueExpensesChart() {
 
           <AreaChart
             accessibilityLayer
-            data={chartData}
+            data={data}
             margin={{
               left: 5,
               right: 5,
@@ -117,7 +136,7 @@ export function RevenueExpensesChart() {
               fillOpacity={0.4}
               stroke="var(--color-expenses)"
             />
-            <ChartLegend content={<ChartLegendContent className="flex flex-row justify-center items-center gap-4 pt-6"/>} />
+            <ChartLegend content={<ChartLegendContent className="flex flex-row justify-center items-center gap-4 pt-6" />} />
           </AreaChart>
         </ChartContainer>
       </CardContent>

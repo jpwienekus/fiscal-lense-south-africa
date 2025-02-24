@@ -18,12 +18,7 @@ import jsonData from '@/data/parsed/revenue-breakdown.json'
 import { formatTotalTooltip } from "./tooltips/total-tooltip"
 import { Link } from "react-router-dom"
 import { SquareArrowOutUpRight } from "lucide-react"
-
-const numberOfYears = 10
-const chartData = jsonData.slice(numberOfYears * -1)
-const latestYear = chartData[chartData.length - 1]
-const firstYear = chartData[0].category
-const lastYear = latestYear.category
+import { useEffect, useState } from "react"
 
 const chartConfig = {
   tax_revenue__gross_: {
@@ -52,7 +47,36 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function RevenueBreakdownChart() {
+type RevenueBreakdownChartProps = {
+  years: number,
+  topN: number
+}
+
+type ChartData = {
+    category: string;
+    tax_revenue__gross_: number;
+    less__sacu_payments: number;
+    other_adjustment: number;
+    non_tax_revenue__departmental_receipts_: number;
+    financial_transactions_in_assets_and_liabilities: number;
+    sales_of_capital_assets: number;
+}
+
+export function RevenueBreakdownChart({
+  years,
+  topN
+}: RevenueBreakdownChartProps) {
+  const [data, setData] = useState<ChartData[]>([])
+  const [firstYear, setFirstYear] = useState('')
+  const [lastYear, setLastYear] = useState('')
+
+  useEffect(() => {
+    const parsedData = jsonData.slice(years * -1)
+    setData(parsedData)
+    setFirstYear(parsedData[0].category)
+    setLastYear(parsedData[parsedData.length - 1].category)
+  }, [years])
+
   return (
     <Card>
       <CardHeader>
@@ -70,7 +94,7 @@ export function RevenueBreakdownChart() {
         <ChartContainer config={chartConfig}>
           <LineChart
             accessibilityLayer
-            data={chartData}
+            data={data}
             margin={{
               left: 12,
               right: 12,

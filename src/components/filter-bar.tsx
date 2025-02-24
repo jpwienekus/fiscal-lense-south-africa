@@ -17,7 +17,7 @@ export const FilterBar = ({
   const yearOptions = [1, 5, 10, 15]
   const topNOptions = [5, 10, -1]
   return (
-    <div className="px-6 py-3">
+    <div className="py-3">
       <Card>
         <CardContent>
           <div className="w-full bd-white">
