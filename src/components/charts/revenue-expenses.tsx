@@ -44,21 +44,17 @@ export function RevenueExpensesChart({
   years,
 }: RevenueExpensesChartProps) {
   const [data, setData] = useState<ChartData[]>([])
-  const [firstYear, setFirstYear] = useState('')
-  const [lastYear, setLastYear] = useState('')
 
   useEffect(() => {
     const parsedData = jsonData.slice(years * -1)
     setData(parsedData)
-    setFirstYear(parsedData[0].category)
-    setLastYear(parsedData[parsedData.length - 1].category)
   }, [years])
 
   return (
-    <Card>
+    <Card className="col-span-1">
       <CardHeader>
-        <CardTitle>Revenue vs Expenses</CardTitle>
-        <CardDescription>{firstYear} - {lastYear}</CardDescription>
+        <CardTitle>Revenue vs Expenses ({years} Year Trend)</CardTitle>
+        <CardDescription>Annual comparision between revenue and expenses</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>

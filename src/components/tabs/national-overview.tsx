@@ -2,6 +2,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import revenueExpenses from '@/data/parsed/revenue-expenses.json'
 import borrowingRequirementData from '@/data/parsed/borrowing-requirement.json'
 import { useEffect, useState } from "react"
+import { TabsContent } from "../ui/tabs"
+import { RevenueExpensesChart } from "@/components/charts/revenue-expenses"
+import { BorrowingRequirementChart } from "@/components/charts/borrowing-requirement"
+import { ExpenseBreakdownChart } from "@/components/charts/expense-breakdown"
+import { RevenueBreakdownChart } from "@/components/charts/revenue-breakdown";
 
 type NationalOverviewTabProps = {
   selectedYear: string
@@ -61,44 +66,56 @@ export const NationalOverviewTab = ({
   }, [selectedYear])
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      <Card>
-        <CardHeader className="pb-2">
-          <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-          <CardContent className="px-0">
-            <div className="text-2xl font-bold">R{revenue}</div>
-            {/* no need to render -, its already being done since the number is negative */}
-            <p className={`text-xs ${+revenueState > 0 ? 'text-green-500' : 'text-red-500'}`}>{+revenueState > 0 ? '+' : ''}{revenueState}% {+revenueState > 0 ? 'up' : 'down'}</p>
-          </CardContent>
-        </CardHeader>
-      </Card>
-      <Card>
-        <CardHeader className="pb-2">
-          <CardTitle className="text-sm font-medium">Total Expenses</CardTitle>
-          <CardContent className="px-0">
-            <div className="text-2xl font-bold">R{expenses}</div>
-            <p className={`text-xs ${+expensesState > 0 ? 'text-red-500' : 'text-green-500'}`}>{+expensesState > 0 ? '+' : ''}{expensesState}% {+expensesState > 0 ? 'up' : 'down'}</p>
-          </CardContent>
-        </CardHeader>
-      </Card>
-      <Card>
-        <CardHeader className="pb-2">
-          <CardTitle className="text-sm font-medium">Net Position</CardTitle>
-          <CardContent className="px-0">
-            <div className="text-2xl font-bold">R{netPosition}</div>
-            <p className={`text-xs ${+netState > 0 ? 'text-red-500' : 'text-green-500'}`}>{+netState > 0 ? '+' : ''}{netState}% {+netState > 0 ? 'up' : 'down'}</p>
-          </CardContent>
-        </CardHeader>
-      </Card>
-      <Card>
-        <CardHeader className="pb-2">
-          <CardTitle className="text-sm font-medium">Borrowing Requirement</CardTitle>
-          <CardContent className="px-0">
-            <div className="text-2xl font-bold">R{borrowingRequirement}</div>
-            <p className={`text-xs ${+borrowingRequirementState > 0 ? 'text-red-500' : 'text-green-500'}`}>{+borrowingRequirementState > 0 ? '+' : ''}{borrowingRequirementState}% {+borrowingRequirementState > 0 ? 'up' : 'down'}</p>
-          </CardContent>
-        </CardHeader>
-      </Card>
-    </div>
+    <TabsContent value="overview" className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
+            <CardContent className="px-0">
+              <div className="text-2xl font-bold">R{revenue}</div>
+              {/* no need to render -, its already being done since the number is negative */}
+              <p className={`text-xs ${+revenueState > 0 ? 'text-green-500' : 'text-red-500'}`}>{+revenueState > 0 ? '+' : ''}{revenueState}% {+revenueState > 0 ? 'up' : 'down'}</p>
+            </CardContent>
+          </CardHeader>
+        </Card>
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Total Expenses</CardTitle>
+            <CardContent className="px-0">
+              <div className="text-2xl font-bold">R{expenses}</div>
+              <p className={`text-xs ${+expensesState > 0 ? 'text-red-500' : 'text-green-500'}`}>{+expensesState > 0 ? '+' : ''}{expensesState}% {+expensesState > 0 ? 'up' : 'down'}</p>
+            </CardContent>
+          </CardHeader>
+        </Card>
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Net Position</CardTitle>
+            <CardContent className="px-0">
+              <div className="text-2xl font-bold">R{netPosition}</div>
+              <p className={`text-xs ${+netState > 0 ? 'text-red-500' : 'text-green-500'}`}>{+netState > 0 ? '+' : ''}{netState}% {+netState > 0 ? 'up' : 'down'}</p>
+            </CardContent>
+          </CardHeader>
+        </Card>
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium">Borrowing Requirement</CardTitle>
+            <CardContent className="px-0">
+              <div className="text-2xl font-bold">R{borrowingRequirement}</div>
+              <p className={`text-xs ${+borrowingRequirementState > 0 ? 'text-red-500' : 'text-green-500'}`}>{+borrowingRequirementState > 0 ? '+' : ''}{borrowingRequirementState}% {+borrowingRequirementState > 0 ? 'up' : 'down'}</p>
+            </CardContent>
+          </CardHeader>
+        </Card>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <RevenueExpensesChart years={10} topN={5}/>
+        <BorrowingRequirementChart years={10} topN={5} />
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <RevenueBreakdownChart years={10} topN={5} />
+        <ExpenseBreakdownChart years={10} topN={5} />
+      </div>
+    </TabsContent>
   )
 }

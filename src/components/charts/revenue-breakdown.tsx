@@ -16,8 +16,6 @@ import {
 } from "@/components/ui/chart"
 import jsonData from '@/data/parsed/revenue-breakdown.json'
 import { formatTotalTooltip } from "./tooltips/total-tooltip"
-import { Link } from "react-router-dom"
-import { SquareArrowOutUpRight } from "lucide-react"
 import { useEffect, useState } from "react"
 
 const chartConfig = {
@@ -67,14 +65,10 @@ export function RevenueBreakdownChart({
   topN
 }: RevenueBreakdownChartProps) {
   const [data, setData] = useState<ChartData[]>([])
-  const [firstYear, setFirstYear] = useState('')
-  const [lastYear, setLastYear] = useState('')
 
   useEffect(() => {
     const parsedData = jsonData.slice(years * -1)
     setData(parsedData)
-    setFirstYear(parsedData[0].category)
-    setLastYear(parsedData[parsedData.length - 1].category)
   }, [years])
 
   return (
@@ -82,13 +76,10 @@ export function RevenueBreakdownChart({
       <CardHeader>
         <CardTitle>
           <span className="flex">
-            Revenue Breakdown
-            <Link to="/national-revenue-breakdown">
-              <SquareArrowOutUpRight className="px-1" height={10}/>
-            </Link>
+            Revenue Breakdown ({years} Year Trend)
           </span>
         </CardTitle>
-        <CardDescription>{firstYear} - {lastYear}</CardDescription>
+        <CardDescription>Annual revenue sources</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>

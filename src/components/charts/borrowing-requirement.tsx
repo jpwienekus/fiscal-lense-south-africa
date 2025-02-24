@@ -47,33 +47,29 @@ type BorrowingRequirementChartProps = {
 }
 
 type ChartData = {
-    category: string;
-    main_budget_balance: number;
-    domestic_long_term_loans: number;
-    foreign_loans: number;
-    eskom_debt_relief_arrangement: number;
-    gfecra_settlement: number;
+  category: string;
+  main_budget_balance: number;
+  domestic_long_term_loans: number;
+  foreign_loans: number;
+  eskom_debt_relief_arrangement: number;
+  gfecra_settlement: number;
 }
 
 export function BorrowingRequirementChart({
   years,
 }: BorrowingRequirementChartProps) {
   const [data, setData] = useState<ChartData[]>([])
-  const [firstYear, setFirstYear] = useState('')
-  const [lastYear, setLastYear] = useState('')
 
   useEffect(() => {
     const parsedData = jsonData.slice(years * -1)
     setData(parsedData)
-    setFirstYear(parsedData[0].category)
-    setLastYear(parsedData[parsedData.length - 1].category)
   }, [years])
 
   return (
-    <Card>
+    <Card className="col-span-1">
       <CardHeader>
-        <CardTitle>Gross Borrowing Requirement</CardTitle>
-        <CardDescription>{firstYear} - {lastYear}</CardDescription>
+        <CardTitle>Gross Borrowing Requirement ({years} Year Trend)</CardTitle>
+        <CardDescription>Annual borrowing needs (positive) or surplus (negative)</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -118,7 +114,7 @@ export function BorrowingRequirementChart({
               />
             ))}
 
-            <ChartLegend content={<ChartLegendContent className="flex flex-row justify-center items-center gap-4 pt-6"/>} />
+            <ChartLegend content={<ChartLegendContent className="flex flex-row justify-center items-center gap-4 pt-6" />} />
           </BarChart>
         </ChartContainer>
       </CardContent>

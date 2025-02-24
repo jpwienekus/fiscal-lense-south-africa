@@ -18,14 +18,6 @@ import jsonData from '@/data/parsed/expense-breakdown.json'
 import { formatTotalTooltip } from "./tooltips/total-tooltip"
 import { useEffect, useState } from "react"
 
-//const numberOfYears = 10
-//const topN = 5
-//const chartData = jsonData.slice(numberOfYears - 1)
-//const sortedKeys = Object.entries(chartData[chartData.length - 1]).sort(([, a], [, b]) => Number(b) - Number(a)).map(([key]) => key).slice(0, topN)
-//const latestYear = chartData[chartData.length - 1]
-//const firstYear = chartData[0].category
-//const lastYear = latestYear.category
-
 const chartConfig = {
   compensation_of_employees: {
     label: "Compensation of employees",
@@ -154,24 +146,19 @@ export function ExpenseBreakdownChart({
   const [data, setData] = useState<ChartData[]>([])
   const [keys, setKeys] = useState<string[]>([])
 
-  const [firstYear, setFirstYear] = useState('')
-  const [lastYear, setLastYear] = useState('')
-
   useEffect(() => {
     const parsedData = jsonData.slice(years * -1)
     const sortedKeys = Object.entries(parsedData[parsedData.length - 1]).sort(([, a], [, b]) => Number(b) - Number(a)).map(([key]) => key).slice(0, topN)
 
     setData(parsedData)
     setKeys(sortedKeys)
-    setFirstYear(parsedData[0].category)
-    setLastYear(parsedData[parsedData.length - 1].category)
   }, [years, topN])
 
   return (
-    <Card>
+    <Card className="col-span-1">
       <CardHeader>
-        <CardTitle>Expenses Breakdown (Top {topN})</CardTitle>
-        <CardDescription>{firstYear} - {lastYear}</CardDescription>
+        <CardTitle>Expenses Breakdown ({years} Year Trend, Top {topN})</CardTitle>
+        <CardDescription>Annual expense categories</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
