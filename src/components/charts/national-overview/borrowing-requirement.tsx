@@ -15,7 +15,7 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 import jsonData from '@/data/parsed/borrowing-requirement.json'
-import { formatTotalTooltip } from "./tooltips/total-tooltip"
+import { formatTotalTooltip } from "@/components/charts/tooltips/total-tooltip"
 import { useEffect, useState } from "react"
 
 const chartConfig = {
@@ -42,6 +42,7 @@ const chartConfig = {
 } satisfies ChartConfig
 
 type BorrowingRequirementChartProps = {
+  selectedYear: string
   years: number,
   topN: number
 }
@@ -56,14 +57,22 @@ type ChartData = {
 }
 
 export function BorrowingRequirementChart({
+  selectedYear,
   years,
 }: BorrowingRequirementChartProps) {
   const [data, setData] = useState<ChartData[]>([])
 
   useEffect(() => {
-    const parsedData = jsonData.slice(years * -1)
+    const currentYearIndex = jsonData.findIndex(e => e.category === selectedYear) + 1
+
+    if (currentYearIndex === -1) {
+      setData([])
+      return
+    }
+    
+    const parsedData = jsonData.slice(currentYearIndex - years, currentYearIndex)
     setData(parsedData)
-  }, [years])
+  }, [selectedYear, years])
 
   return (
     <Card className="col-span-1">

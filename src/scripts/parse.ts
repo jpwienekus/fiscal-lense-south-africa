@@ -23,11 +23,17 @@ async function main() {
     otherInterestingRevenueBreakdown: formatExpenseBreakdown(revenue.headers, revenue.otherInterestingRevenueBreakdown, 1000),
   }
 
+  const consolidatedExpenditurebyFunctionalClassificationParser = new ExpensesByFunctionalClassificationParser()
+  // From T8 on National Treasurey website -> Budget time series data
+  const consolidatedExpenditurebyFunctionalClassification = await consolidatedExpenditurebyFunctionalClassificationParser.parse('src/data/raw/expense-by-functional-classification.csv')
+
+  writeData('src/data/parsed/expense-breakdown-summary.json', formatExpenseBreakdown(summary.headers, summary.expenseBreakdown))
   writeData('src/data/parsed/revenue-expenses.json', formatRevenueAndExpenses(summary.headers, summary.totalRevenue, summary.totalExpense))
   writeData('src/data/parsed/borrowing-requirement.json', formatExpenseBreakdown(summary.headers, summary.borrowingRequirementBreakdown))
   writeData('src/data/parsed/revenue-breakdown.json', formatExpenseBreakdown(summary.headers, summary.revenueBreakdown))
   writeData('src/data/parsed/expense-breakdown.json', formatExpenseBreakdown(expense.headers, expense.expenseBreakdown))
   writeData('src/data/parsed/detailed-revenue-breakdown.json', detailedRevenueBreakdown)
+  writeData('src/data/parsed/expense-by-functional-classification.json', formatExpenseBreakdown(consolidatedExpenditurebyFunctionalClassification.headers, consolidatedExpenditurebyFunctionalClassification.expense))
 }
 
 // Multiply by is used to normalize the values. Some sheets have it represented per million and some per thousand
@@ -47,6 +53,7 @@ function formatRevenueAndExpenses(years: string[], revenue: number[], expenses: 
 
 function formatExpenseBreakdown(years: string[], expenses: { [key: string]: number[] }, multiplyBy = 1000000): object[] {
   const data: object[] = []
+  console.log(444, years)
   years.forEach((year, index) => {
     const keys = Object.keys(expenses)
     const value: { [key: string]: string | number } = {
@@ -237,6 +244,39 @@ export class RevenueBreakdownParser extends BaseParser {
       exciseDutyRevenueBreakdown,
       taxesOnGoodsOrPermissionToUseRevenueBreakdown,
       otherInterestingRevenueBreakdown
+    }
+  }
+}
+
+export class ExpensesByFunctionalClassificationParser extends BaseParser {
+  async parse(filePath: string) {
+    const fileStream = createReadStream(filePath)
+    const readline = createInterface({
+      input: fileStream,
+      crlfDelay: Infinity
+    })
+
+    let lineNumber = 0
+    let headers: string[] = []
+    const expense: { [key: string]: number[] } = {}
+
+    for await (const line of readline) {
+      const parsedLine = line.split(this.delimiter)
+
+      if (lineNumber === 0) {
+        // Every 2nd column has a percentage, i am going to calculate it instead
+        headers = parsedLine.splice(1).filter((_, i) => i % 2 === 0)
+      } else if ([3, 5, 10, 19, 20, 24, 25, 26, 27, 30].includes(lineNumber)) {
+        // Every 2nd column has a percentage, i am going to calculate it instead
+        expense[parsedLine[0].trim().toLowerCase().replace(/ /g, '_').replace(/-/g, '_').replace(/:/g, '_').replace(/\(/g, '_').replace(/\)/g, '_')] = parsedLine.splice(1).filter((_, i) => i % 2 === 0).map(Number)
+      }
+
+      lineNumber++
+    }
+
+    return {
+      headers,
+      expense
     }
   }
 }

@@ -3,10 +3,10 @@ import revenueExpenses from '@/data/parsed/revenue-expenses.json'
 import borrowingRequirementData from '@/data/parsed/borrowing-requirement.json'
 import { useEffect, useState } from "react"
 import { TabsContent } from "../ui/tabs"
-import { RevenueExpensesChart } from "@/components/charts/revenue-expenses"
-import { BorrowingRequirementChart } from "@/components/charts/borrowing-requirement"
-import { ExpenseBreakdownChart } from "@/components/charts/expense-breakdown"
+import { RevenueExpensesChart } from "@/components/charts/national-overview/revenue-expenses"
+import { BorrowingRequirementChart } from "@/components/charts/national-overview/borrowing-requirement"
 import { RevenueBreakdownChart } from "@/components/charts/revenue-breakdown";
+import { ExpenseByFunctionalClassificationChart } from "../charts/national-overview/expenses-by-functional-classification"
 
 type NationalOverviewTabProps = {
   selectedYear: string
@@ -108,13 +108,14 @@ export const NationalOverviewTab = ({
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <RevenueExpensesChart years={10} topN={5}/>
-        <BorrowingRequirementChart years={10} topN={5} />
+        <RevenueExpensesChart selectedYear={selectedYear} years={10} topN={5} />
+        <BorrowingRequirementChart selectedYear={selectedYear} years={10} topN={5} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <RevenueBreakdownChart years={10} topN={5} />
-        <ExpenseBreakdownChart years={10} topN={5} />
+        <ExpenseByFunctionalClassificationChart selectedYear={selectedYear} years={10} topN={5}/>
+        {/*<ExpenseBreakdownChart years={10} topN={5} /> */}
       </div>
     </TabsContent>
   )

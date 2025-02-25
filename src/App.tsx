@@ -4,7 +4,6 @@ import { useState } from "react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs"
 import { NationalOverviewTab } from "./components/tabs/national-overview"
-import { ThemeToggle } from "./components/theme-toggle"
 
 function App() {
   const [selectedYear, setSelectedYear] = useState('2023/24')
@@ -13,54 +12,42 @@ function App() {
     <>
       <BrowserRouter>
         <ThemeProvider defaultTheme="dark">
-          <div className="p-6 space-y-6 min-h-screen">
-            <div className="flex justify-between items-center">
-              <h1 className="text-3xl font-bold">South African Budget Analytics</h1>
-              <div className="flex">
-                <Select value={selectedYear} onValueChange={setSelectedYear}>
-                  <SelectTrigger className="w-32 me-1">
-                    <SelectValue placeholder="Year" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {Array.from({ length: 10 }, (_, i) => (
-                      <SelectItem key={`20${14 + i}/${14 + i + 1}`} value={`20${14 + i}/${14 + i + 1}`}>{`20${14 + i}/${14 + i + 1}`}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <ThemeToggle />
-              </div>
+          <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4 py-3">
+            <div className="flex items-center space-x-2">
+              <h1 className="text-xl font-bold">
+                South African Budget Analytics
+              </h1>
             </div>
+          </header>
 
-            <Tabs defaultValue="overview" className="w-full">
-              <TabsList className="mb-4">
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="revenue">Revenue Details</TabsTrigger>
-                <TabsTrigger value="expenses">Expenses Details</TabsTrigger>
-              </TabsList>
+          <main className="flex-1 p-4 container mx-auto">
+            <Tabs defaultValue="overview" className="space-y-4">
+              <div className="flex items-center justify-between">
+                <TabsList>
+                  <TabsTrigger value="overview">Overview</TabsTrigger>
+                  <TabsTrigger value="revenue">Revenue</TabsTrigger>
+                  <TabsTrigger value="expenses">Expenses</TabsTrigger>
+                </TabsList>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm" >Fiscal Years:</span>
+                  <Select value={selectedYear} onValueChange={setSelectedYear}>
+                    <SelectTrigger className="w-32 me-1">
+                      <SelectValue placeholder="Year" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {Array.from({ length: 10 }, (_, i) => (
+                        <SelectItem key={`20${14 + i}/${14 + i + 1}`} value={`20${14 + i}/${14 + i + 1}`}>{`20${14 + i}/${14 + i + 1}`}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
 
               <NationalOverviewTab selectedYear={selectedYear} />
               <TabsContent value="revenue">test 1</TabsContent>
               <TabsContent value="expenses">test 2</TabsContent>
             </Tabs>
-
-
-          </div>
-          {/*<div className="relative flex min-h-svh flex-col bg-background">
-            <div data-wrapper="" className="border-grid flex flex-1 flex-col">
-              <Header />
-
-              <main className="">
-                <div className="container-wrapper">
-                  <Routes>
-                    <Route path="/" element={<NationalOverview />} />
-                    <Route path="/national-revenue-breakdown" element={<RevenueBreakdown />} />
-                  </Routes>
-                </div>
-              </main>
-            </div>
-          </div> */}
-
-
+          </main>
         </ThemeProvider>
       </BrowserRouter>
     </>
