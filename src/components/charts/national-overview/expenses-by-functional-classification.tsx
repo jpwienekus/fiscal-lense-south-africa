@@ -3,6 +3,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -59,6 +60,7 @@ const chartConfig = {
 } satisfies ChartConfig
 
 type ExpenseByFunctionalClassificationChartProps = {
+  dataSourcedYear: string,
   selectedYear: string
   years: number,
   topN: number
@@ -85,6 +87,7 @@ type MappedChartData = {
 }
 
 export function ExpenseByFunctionalClassificationChart({
+  dataSourcedYear,
   selectedYear,
   years,
 }: ExpenseByFunctionalClassificationChartProps) {
@@ -117,7 +120,7 @@ export function ExpenseByFunctionalClassificationChart({
   return (
     <Card className="col-span-1">
       <CardHeader>
-        <CardTitle>Expenses By Functional Classification</CardTitle>
+        <CardTitle>Consolidated Expenses By Functional Classification</CardTitle>
         <CardDescription>Distribution of expenditure by functional classification in {selectedYear} (%)</CardDescription>
       </CardHeader>
       <CardContent>
@@ -142,6 +145,11 @@ export function ExpenseByFunctionalClassificationChart({
           </PieChart>
         </ChartContainer>
       </CardContent>
+      <CardFooter>
+        <CardDescription>
+          Compiled from table 8 of the national budget speech timeseries data ({dataSourcedYear})
+        </CardDescription>
+      </CardFooter>
     </Card>
   )
 }

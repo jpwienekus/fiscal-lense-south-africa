@@ -3,6 +3,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -30,6 +31,7 @@ const chartConfig = {
 } satisfies ChartConfig
 
 type RevenueExpensesChartProps = {
+  dataSourcedYear: string,
   selectedYear: string
   years: number,
   topN: number
@@ -42,6 +44,7 @@ type ChartData = {
 }
 
 export function RevenueExpensesChart({
+  dataSourcedYear,
   selectedYear,
   years,
 }: RevenueExpensesChartProps) {
@@ -145,6 +148,11 @@ export function RevenueExpensesChart({
           </AreaChart>
         </ChartContainer>
       </CardContent>
+      <CardFooter>
+        <CardDescription>
+          Compiled from table 1 of the national budget speech timeseries data ({dataSourcedYear})
+        </CardDescription>
+      </CardFooter>
     </Card>
   )
 }

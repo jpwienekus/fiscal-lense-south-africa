@@ -24,6 +24,7 @@ export const NationalOverviewTab = ({
   const [netState, setNetState] = useState('')
   const [borrowingRequirement, setBorrowingRequirement] = useState('')
   const [borrowingRequirementState, setBorrowingRequirementState] = useState('')
+  const dataSourcedYear = '2024'
 
 
   const calculatePosition = (cPosition: number, pPosition: number) => {
@@ -108,14 +109,13 @@ export const NationalOverviewTab = ({
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <RevenueExpensesChart selectedYear={selectedYear} years={10} topN={5} />
-        <BorrowingRequirementChart selectedYear={selectedYear} years={10} topN={5} />
+        <RevenueExpensesChart dataSourcedYear={dataSourcedYear} selectedYear={selectedYear} years={10} topN={5} />
+        <BorrowingRequirementChart dataSourcedYear={dataSourcedYear} selectedYear={selectedYear} years={10} topN={5} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <RevenueBreakdownChart years={10} topN={5} />
-        <ExpenseByFunctionalClassificationChart selectedYear={selectedYear} years={10} topN={5}/>
-        {/*<ExpenseBreakdownChart years={10} topN={5} /> */}
+        <ExpenseByFunctionalClassificationChart dataSourcedYear={dataSourcedYear} selectedYear={selectedYear} years={10} topN={5}/>
       </div>
     </TabsContent>
   )
