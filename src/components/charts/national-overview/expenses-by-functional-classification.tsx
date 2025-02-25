@@ -23,15 +23,15 @@ const chartConfig = {
   },
   defence: {
     label: "Defence",
-    color: "var(--chart-5)"
+    color: "var(--chart-2)"
   },
   economic_affairs: {
     label: "Economic affairs",
-    color: "var(--chart-5)"
+    color: "var(--chart-3)"
   },
   environmental_protection: {
     label: "Environmental protection",
-    color: "var(--chart-5)"
+    color: "var(--chart-4)"
   },
   housing_and_community_amenities: {
     label: "Housing and community amenities",
@@ -39,23 +39,23 @@ const chartConfig = {
   },
   health: {
     label: "Health",
-    color: "var(--chart-4)"
+    color: "var(--chart-6)"
   },
   recreation_and_culture: {
     label: "Recreation and culture",
-    color: "var(--chart-5)"
+    color: "var(--chart-7)"
   },
   education: {
     label: "Education",
-    color: "var(--chart-3)"
+    color: "var(--chart-8)"
   },
   social_protection: {
     label: "Social protection",
-    color: "var(--chart-2)"
+    color: "var(--chart-9)"
   },
   contingency_reserve: {
     label: "Contingency reserve",
-    color: "var(--chart-5)"
+    color: "var(--chart-10)"
   },
 } satisfies ChartConfig
 

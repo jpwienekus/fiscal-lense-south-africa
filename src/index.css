@@ -25,11 +25,23 @@
     --input: hsl(240 5.9% 90%);
     --ring: hsl(142.1 76.2% 36.3%);
     --radius: 0.5rem;
-    --chart-1: hsl(139 65% 20%);
-    --chart-2: hsl(140 74% 44%);
-    --chart-3: hsl(142 88% 28%);
-    --chart-4: hsl(137 55% 15%);
-    --chart-5: hsl(141 40% 9%);
+    --chart-1: hsl(198 61% 39%);
+    --chart-2: hsl(359 94% 68%);
+    --chart-3: hsl(208 25% 45%);
+    --chart-4: hsl(21 89% 56%);
+    --chart-5: hsl(178 30% 43%);
+
+
+    --chart-6: hsl(33 94% 55%);
+    --chart-7: hsl(162 43% 46%);
+    --chart-8: hsl(20 94% 63%);
+    --chart-9: hsl(94 38% 59%);
+    --chart-10: hsl(42 93% 64%);
+    /*--chart-1: hsl(139 65% 20%);*/
+    /*--chart-2: hsl(140 74% 44%);*/
+    /*--chart-3: hsl(142 88% 28%);*/
+    /*--chart-4: hsl(137 55% 15%);*/
+    /*--chart-5: hsl(141 40% 9%);*/
 }
 /*---break---*/
 .dark {
@@ -52,11 +64,23 @@
   --border: hsl(240 3.7% 15.9%);
   --input: hsl(240 3.7% 15.9%);
   --ring: hsl(142.4 71.8% 29.2%);
-  --chart-1: hsl(142 88% 28%);
-  --chart-2: hsl(139 65% 20%);
-  --chart-3: hsl(140 74% 24%);
-  --chart-4: hsl(137 55% 15%);
-  --chart-5: hsl(141 40% 9%);
+  /*--chart-1: hsl(142 88% 28%);*/
+  /*--chart-2: hsl(139 65% 20%);*/
+  /*--chart-3: hsl(140 74% 24%);*/
+  /*--chart-4: hsl(137 55% 15%);*/
+  /*--chart-5: hsl(141 40% 9%);*/
+    --chart-1: hsl(198 61% 39%);
+    --chart-2: hsl(359 94% 68%);
+    --chart-3: hsl(208 25% 45%);
+    --chart-4: hsl(21 89% 56%);
+    --chart-5: hsl(178 30% 43%);
+
+
+    --chart-6: hsl(33 94% 55%);
+    --chart-7: hsl(162 43% 46%);
+    --chart-8: hsl(20 94% 63%);
+    --chart-9: hsl(94 38% 59%);
+    --chart-10: hsl(42 93% 64%);
 }
 /*---break---*/
 @theme inline {
