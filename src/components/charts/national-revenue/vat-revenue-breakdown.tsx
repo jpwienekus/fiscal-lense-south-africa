@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/chart"
 import { vatRevenueBreakdown } from '@/data/parsed/detailed-revenue-breakdown.json'
 import { useEffect, useState } from "react"
-import { formatNumber } from "@/components/charts/tooltips/format-number"
+import { formatNumber, formatNumberBasic } from "@/components/charts/tooltips/format-number"
 
 const chartConfig = {
   domestic_vat: {
@@ -110,6 +110,7 @@ export function VatRevenueBreakdownChart({
               tickLine={false}
               axisLine={false}
               tickMargin={10}
+              tickFormatter={formatNumberBasic}
             />
             <ChartTooltip
               cursor={false}

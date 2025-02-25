@@ -18,6 +18,7 @@ import {
 import jsonData from '@/data/parsed/revenue-breakdown.json'
 import { formatTotalTooltip } from "../tooltips/total-tooltip"
 import { useEffect, useState } from "react"
+import { formatNumberBasic } from "../tooltips/format-number"
 
 const chartConfig = {
   tax_revenue__gross_: {
@@ -115,6 +116,7 @@ export function RevenueBreakdownChart({
               tickLine={false}
               axisLine={false}
               tickMargin={10}
+              tickFormatter={formatNumberBasic}
             />
 
             <ChartTooltip

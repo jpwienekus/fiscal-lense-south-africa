@@ -18,6 +18,7 @@ import {
 import jsonData from '@/data/parsed/revenue-expenses.json'
 import { formatTotalTooltip } from "@/components/charts/tooltips/total-tooltip"
 import { useEffect, useState } from "react"
+import { formatNumberBasic } from "../tooltips/format-number"
 
 const chartConfig = {
   revenue: {
@@ -92,6 +93,7 @@ export function RevenueExpensesChart({
               tickLine={false}
               axisLine={false}
               tickMargin={10}
+              tickFormatter={formatNumberBasic}
             />
             <ChartTooltip
               cursor={false}

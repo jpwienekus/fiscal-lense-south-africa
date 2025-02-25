@@ -18,6 +18,7 @@ import {
 import jsonData from '@/data/parsed/borrowing-requirement.json'
 import { formatTotalTooltip } from "@/components/charts/tooltips/total-tooltip"
 import { useEffect, useState } from "react"
+import { formatNumberBasic } from "../tooltips/format-number"
 
 const chartConfig = {
   main_budget_balance: {
@@ -106,6 +107,7 @@ export function BorrowingRequirementChart({
             <YAxis
               axisLine={false}
               tickMargin={10}
+              tickFormatter={formatNumberBasic}
             />
 
             <ChartTooltip

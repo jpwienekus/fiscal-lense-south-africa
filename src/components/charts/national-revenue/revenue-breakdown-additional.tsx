@@ -3,6 +3,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -16,12 +17,8 @@ import {
 } from "@/components/ui/chart"
 import { formatTotalTooltip } from "@/components/charts/tooltips/total-tooltip"
 import jsonData from '@/data/parsed/detailed-revenue-breakdown.json'
-
-const numberOfYears = 10
-const chartData = jsonData.revenueBreakdown.slice(numberOfYears * -1)
-const latestYear = chartData[chartData.length - 1]
-const firstYear = chartData[0].category
-const lastYear = latestYear.category
+import { formatNumberBasic } from "../tooltips/format-number"
+import { useEffect, useState } from "react"
 
 const chartConfig = {
   total_tax_revenue__gross_: {
@@ -46,22 +43,55 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function RevenueBreakdownChart() {
+type RevenueBreakdownChartProps = {
+  dataSourcedYear: string,
+  selectedYear: string,
+  years: number,
+  topN: number
+}
+
+type ChartData = {
+    category: string;
+    total_tax_revenue__gross_: number;
+    less__sacu_payments: number;
+    sales_of_capital_assets: number;
+    financial_transactions_in_assets_and_liabilities: number;
+    total_non_tax_revenue: number;
+}
+
+export function RevenueBreakdownChart({
+  dataSourcedYear,
+  selectedYear,
+  years,
+}: RevenueBreakdownChartProps) {
+  const [data, setData] = useState<ChartData[]>([])
+
+  useEffect(() => {
+    const currentYearIndex = jsonData.revenueBreakdown.findIndex(e => e.category === selectedYear) + 1
+
+    if (currentYearIndex === -1) {
+      setData([])
+      return
+    }
+    
+    const parsedData = jsonData.revenueBreakdown.slice(currentYearIndex - years, currentYearIndex)
+    setData(parsedData)
+  }, [selectedYear, years])
   return (
     <Card>
       <CardHeader>
         <CardTitle>
           <span className="flex">
-            Revenue Breakdown
+            Revenue Breakdown ({years} Year Trend)
           </span>
         </CardTitle>
-        <CardDescription>{firstYear} - {lastYear}</CardDescription>
+        <CardDescription>Annual revenue sources</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
           <LineChart
             accessibilityLayer
-            data={chartData}
+            data={data}
             margin={{
               left: 12,
               right: 12,
@@ -80,6 +110,7 @@ export function RevenueBreakdownChart() {
               tickLine={false}
               axisLine={false}
               tickMargin={10}
+              tickFormatter={formatNumberBasic}
             />
 
             <ChartTooltip
@@ -106,6 +137,11 @@ export function RevenueBreakdownChart() {
           </LineChart>
         </ChartContainer>
       </CardContent>
+      <CardFooter>
+        <CardDescription>
+          Compiled from table 1 of the national budget speech timeseries data ({dataSourcedYear})
+        </CardDescription>
+      </CardFooter>
     </Card>
   )
 }
