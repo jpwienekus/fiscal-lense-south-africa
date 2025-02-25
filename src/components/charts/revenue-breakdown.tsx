@@ -62,7 +62,6 @@ type ChartData = {
 
 export function RevenueBreakdownChart({
   years,
-  topN
 }: RevenueBreakdownChartProps) {
   const [data, setData] = useState<ChartData[]>([])
 

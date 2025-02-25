@@ -11,4 +11,6 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // github pages
+  base: '/fiscal-lense-south-africa/'
 })

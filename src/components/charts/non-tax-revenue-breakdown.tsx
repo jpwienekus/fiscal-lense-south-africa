@@ -15,8 +15,6 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 import { formatTotalTooltip } from "./tooltips/total-tooltip"
-import { Link } from "react-router-dom"
-import { SquareArrowOutUpRight } from "lucide-react"
 import { nonTaxRevenueBreakdown } from '@/data/parsed/detailed-revenue-breakdown.json'
 
 const numberOfYears = 10

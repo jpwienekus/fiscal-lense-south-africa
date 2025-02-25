@@ -5,7 +5,6 @@ import { RevenueBreakdownChart } from '@/components/charts/revenue-breakdown-add
 import { TaxRevenueBreakdownChart } from '@/components/charts/tax-revenue-breakdown'
 import { TaxesOnGoodsOrPermissionToUseRevenueBreakdownChart } from '@/components/charts/taxes-on-goods-or-permission-to-use-revenue-breakdown copy'
 import { VatRevenueBreakdownChart } from '@/components/charts/vat-revenue-breakdown'
-import React from 'react'
 
 export function RevenueBreakdown() {
   return (

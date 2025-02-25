@@ -18,7 +18,6 @@ export function NavBar() {
       <div className="flex items-center px-6 py-1 max-w">
         <div className="flex space-x-2 px-2">
           <svg
-            xmlns:svg="http://www.w3.org/2000/svg"
             xmlns="http://www.w3.org/2000/svg"
             version="1.0"
             viewBox="0 0 800 800"
