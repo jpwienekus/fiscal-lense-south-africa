@@ -14,37 +14,45 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import { formatTotalTooltip } from "./tooltips/total-tooltip"
-import { vatRevenueBreakdown } from '@/data/parsed/detailed-revenue-breakdown.json'
+import { formatTotalTooltip } from "@/components/charts/tooltips/total-tooltip"
+import jsonData from '@/data/parsed/detailed-revenue-breakdown.json'
 
 const numberOfYears = 10
-const chartData = vatRevenueBreakdown.slice(numberOfYears * -1)
+const chartData = jsonData.revenueBreakdown.slice(numberOfYears * -1)
 const latestYear = chartData[chartData.length - 1]
 const firstYear = chartData[0].category
 const lastYear = latestYear.category
 
 const chartConfig = {
-  domestic_vat: {
-    label: "Domestic VAT",
+  total_tax_revenue__gross_: {
+    label: "Tax revenue (gross)",
     color: "var(--chart-1)"
   },
-  import_vat: {
-    label: "Import VAT",
+  less__sacu_payments: {
+    label: "Less: SACU payments",
     color: "var(--chart-2)"
   },
-  refunds: {
-    label: "Refunds",
+  non_tax_revenue__departmental_receipts_: {
+    label: "Non-tax revenue (departmental receipts)",
     color: "var(--chart-3)"
+  },
+  financial_transactions_in_assets_and_liabilities: {
+    label: "Financial transactions in assets and liabilities",
+    color: "var(--chart-4)"
+  },
+  sales_of_capital_assets: {
+    label: "Sales of capital assets",
+    color: "var(--chart-5)"
   },
 } satisfies ChartConfig
 
-export function VatRevenueBreakdownChart() {
+export function RevenueBreakdownChart() {
   return (
     <Card>
       <CardHeader>
         <CardTitle>
           <span className="flex">
-            VAT Revenue Breakdown
+            Revenue Breakdown
           </span>
         </CardTitle>
         <CardDescription>{firstYear} - {lastYear}</CardDescription>

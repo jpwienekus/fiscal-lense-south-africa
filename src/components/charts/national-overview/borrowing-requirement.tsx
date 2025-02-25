@@ -102,8 +102,8 @@ export function BorrowingRequirementChart({
               angle={-45}
               textAnchor="end"
             />
-            <YAxis
               tickLine={false}
+            <YAxis
               axisLine={false}
               tickMargin={10}
             />

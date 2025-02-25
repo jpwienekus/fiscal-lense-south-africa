@@ -1,8 +1,9 @@
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -14,14 +15,9 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import { formatTotalTooltip } from "./tooltips/total-tooltip"
 import { nonTaxRevenueBreakdown } from '@/data/parsed/detailed-revenue-breakdown.json'
-
-const numberOfYears = 10
-const chartData = nonTaxRevenueBreakdown.slice(numberOfYears * -1)
-const latestYear = chartData[chartData.length - 1]
-const firstYear = chartData[0].category
-const lastYear = latestYear.category
+import { useEffect, useState } from "react"
+import { formatNumber } from "@/components/charts/tooltips/format-number"
 
 const chartConfig = {
   sales_of_goods_and_services_other_than_capital_assets: {
@@ -50,7 +46,44 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function NonTaxRevenueBreakdownChart() {
+type MappedChartData = {
+  category: string;
+  value: number;
+  fill: string;
+}
+
+type NonTaxRevenueBreakdownChartProps = {
+  dataSourcedYear: string,
+  selectedYear: string
+}
+
+export function NonTaxRevenueBreakdownChart({
+  dataSourcedYear,
+  selectedYear
+}: NonTaxRevenueBreakdownChartProps) {
+  const [data, setData] = useState<MappedChartData[]>([])
+
+  useEffect(() => {
+    const currentYear = nonTaxRevenueBreakdown.find(e => e.category === selectedYear)
+
+    if (!currentYear) {
+      setData([])
+      return
+    }
+
+    const keysToSum = Object.keys(currentYear).slice(1)
+
+    const mapped = keysToSum.map(e => {
+      const chartKey = e as keyof typeof chartConfig;
+      return {
+        category: e,
+        value: currentYear[chartKey],
+        fill: `var(--color-${e})`
+      }
+    })
+
+    setData(mapped)
+  }, [selectedYear])
   return (
     <Card>
       <CardHeader>
@@ -59,13 +92,13 @@ export function NonTaxRevenueBreakdownChart() {
             Non Tax Revenue Breakdown
           </span>
         </CardTitle>
-        <CardDescription>{firstYear} - {lastYear}</CardDescription>
+        <CardDescription>Non tax revenue sources</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <LineChart
+          <BarChart
             accessibilityLayer
-            data={chartData}
+            data={data}
             margin={{
               left: 12,
               right: 12,
@@ -79,36 +112,37 @@ export function NonTaxRevenueBreakdownChart() {
               interval={0}
               angle={-45}
               textAnchor="end"
+              tickFormatter={(value) =>
+                chartConfig[value as keyof typeof chartConfig]?.label
+              }
             />
             <YAxis
+              tickCount={10}
               tickLine={false}
               axisLine={false}
               tickMargin={10}
             />
-
             <ChartTooltip
               cursor={false}
               content={
                 <ChartTooltipContent
-                  formatter={(value, name, item, index) => formatTotalTooltip(value, name, item, index, chartConfig)}
-                />
-              }
+                  hideLabel
+                  formatter={formatNumber}
+                />}
             />
 
-            {Object.keys(chartConfig).map((key) => (
-              <Line
-                key={key}
-                dataKey={key}
-                type="natural"
-                fill={`var(--color-${key})`}
-                fillOpacity={0.4}
-                stroke={`var(--color-${key})`}
-              />
-            ))}
-
-            <ChartLegend content={<ChartLegendContent className="flex flex-row justify-center items-center gap-6 pt-4" />} />
-          </LineChart>
+            <Bar
+              key="value"
+              dataKey="value"
+            />
+            <ChartLegend content={<ChartLegendContent className="flex flex-row justify-center items-center gap-4 pt-6" />} />
+          </BarChart>
         </ChartContainer>
+        <CardFooter>
+          <CardDescription>
+            Compiled from table 3 of the national budget speech timeseries data ({dataSourcedYear})
+          </CardDescription>
+        </CardFooter>
       </CardContent>
     </Card>
   )

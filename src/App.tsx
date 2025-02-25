@@ -4,6 +4,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs"
 import { NationalOverviewTab } from "./components/tabs/national-overview"
 import { ThemeToggle } from "./components/theme-toggle"
+import { NationalRevenueTab } from "./components/tabs/national-revenue"
 
 function App() {
   const [selectedYear, setSelectedYear] = useState('2023/24')
@@ -46,7 +47,7 @@ function App() {
             </div>
 
             <NationalOverviewTab selectedYear={selectedYear} />
-            <TabsContent value="revenue">test 1</TabsContent>
+            <NationalRevenueTab selectedYear={selectedYear}/>
             <TabsContent value="expenses">test 2</TabsContent>
           </Tabs>
         </main>

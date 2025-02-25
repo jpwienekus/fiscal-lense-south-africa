@@ -1,8 +1,9 @@
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -14,14 +15,14 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import { formatTotalTooltip } from "./tooltips/total-tooltip"
 import { taxRevenueBreakdown } from '@/data/parsed/detailed-revenue-breakdown.json'
+import { useEffect, useState } from "react"
+import { formatNumber } from "@/components/charts/tooltips/format-number"
 
-const numberOfYears = 10
-const chartData = taxRevenueBreakdown.slice(numberOfYears * -1)
-const latestYear = chartData[chartData.length - 1]
-const firstYear = chartData[0].category
-const lastYear = latestYear.category
+type TaxRevenueBreakdownChartProps = {
+  dataSourcedYear: string,
+  selectedYear: string
+}
 
 const chartConfig = {
   taxes_on_income_and_profits: {
@@ -45,31 +46,64 @@ const chartConfig = {
     color: "var(--chart-5)"
   },
   other_taxes: {
-    label: "Sales of capital assets",
+    label: "Other taxes",
     color: "var(--chart-6)"
   },
   state_miscellaneous_revenue: {
-    label: "Sales of capital assets",
+    label: "State miscellaneous revenue",
     color: "var(--chart-7)"
   },
 } satisfies ChartConfig
 
-export function TaxRevenueBreakdownChart() {
+type MappedChartData = {
+  category: string;
+  value: number;
+  fill: string;
+}
+
+export const TaxRevenueBreakdownChart = ({
+  dataSourcedYear,
+  selectedYear
+}: TaxRevenueBreakdownChartProps) => {
+  const [data, setData] = useState<MappedChartData[]>([])
+
+  useEffect(() => {
+    const currentYear = taxRevenueBreakdown.find(e => e.category === selectedYear)
+
+    if (!currentYear) {
+      setData([])
+      return
+    }
+
+    const keysToSum = Object.keys(currentYear).slice(1)
+
+    const mapped = keysToSum.map(e => {
+      const chartKey = e as keyof typeof chartConfig;
+      return {
+        category: e,
+        value: currentYear[chartKey],
+        fill: `var(--color-${e})`
+      }
+    })
+
+    setData(mapped)
+  }, [selectedYear])
+
   return (
     <Card>
       <CardHeader>
         <CardTitle>
           <span className="flex">
-            Tax Revenue Breakdown
+            Tax Revenue
           </span>
         </CardTitle>
-        <CardDescription>{firstYear} - {lastYear}</CardDescription>
+        <CardDescription>Tax revenue sources</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <LineChart
+          <BarChart
             accessibilityLayer
-            data={chartData}
+            data={data}
             margin={{
               left: 12,
               right: 12,
@@ -83,37 +117,36 @@ export function TaxRevenueBreakdownChart() {
               interval={0}
               angle={-45}
               textAnchor="end"
+              tickFormatter={(value) =>
+                chartConfig[value as keyof typeof chartConfig]?.label.substring(0, 10) + '...'
+              }
             />
             <YAxis
-              tickLine={false}
               axisLine={false}
               tickMargin={10}
             />
-
             <ChartTooltip
               cursor={false}
               content={
                 <ChartTooltipContent
-                  formatter={(value, name, item, index) => formatTotalTooltip(value, name, item, index, chartConfig)}
-                />
-              }
+                  hideLabel
+                  formatter={formatNumber}
+                />}
             />
 
-            {Object.keys(chartConfig).map((key) => (
-              <Line
-                key={key}
-                dataKey={key}
-                type="natural"
-                fill={`var(--color-${key})`}
-                fillOpacity={0.4}
-                stroke={`var(--color-${key})`}
-              />
-            ))}
-
-            <ChartLegend content={<ChartLegendContent className="flex flex-row justify-center items-center gap-6 pt-4" />} />
-          </LineChart>
+            <Bar
+              key="value"
+              dataKey="value"
+            />
+            <ChartLegend content={<ChartLegendContent className="flex flex-row justify-center items-center gap-4 pt-6" />} />
+          </BarChart>
         </ChartContainer>
       </CardContent>
+      <CardFooter>
+        <CardDescription>
+          Compiled from table 3 of the national budget speech timeseries data ({dataSourcedYear})
+        </CardDescription>
+      </CardFooter>
     </Card>
   )
 }

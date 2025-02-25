@@ -62,8 +62,6 @@ const chartConfig = {
 type ExpenseByFunctionalClassificationChartProps = {
   dataSourcedYear: string,
   selectedYear: string
-  years: number,
-  topN: number
 }
 
 type ChartData = {
@@ -89,7 +87,6 @@ type MappedChartData = {
 export function ExpenseByFunctionalClassificationChart({
   dataSourcedYear,
   selectedYear,
-  years,
 }: ExpenseByFunctionalClassificationChartProps) {
   const [data, setData] = useState<MappedChartData[]>([])
 
@@ -115,7 +112,7 @@ export function ExpenseByFunctionalClassificationChart({
     })
 
     setData(mapped)
-  }, [selectedYear, years])
+  }, [selectedYear])
 
   return (
     <Card className="col-span-1">

@@ -115,7 +115,7 @@ export const NationalOverviewTab = ({
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <RevenueBreakdownChart dataSourcedYear={dataSourcedYear} selectedYear={selectedYear} years={10} topN={5} />
-        <ExpenseByFunctionalClassificationChart dataSourcedYear={dataSourcedYear} selectedYear={selectedYear} years={10} topN={5}/>
+        <ExpenseByFunctionalClassificationChart dataSourcedYear={dataSourcedYear} selectedYear={selectedYear} />
       </div>
     </TabsContent>
   )

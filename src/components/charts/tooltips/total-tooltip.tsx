@@ -19,7 +19,7 @@ const formatText = (text: string | undefined) => {
   return text
 }
 
-const formatNumber = (value: number) => {
+export const formatNumber = (value: number) => {
   const formatter = new Intl.NumberFormat('en-US', {
     notation: 'compact',
     compactDisplay: 'long',
