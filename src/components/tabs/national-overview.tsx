@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { TabsContent } from "../ui/tabs"
 import { RevenueExpensesChart } from "@/components/charts/national-overview/revenue-expenses"
 import { BorrowingRequirementChart } from "@/components/charts/national-overview/borrowing-requirement"
-import { RevenueBreakdownChart } from "@/components/charts/revenue-breakdown";
+import { RevenueBreakdownChart } from "@/components/charts/national-overview/revenue-breakdown";
 import { ExpenseByFunctionalClassificationChart } from "../charts/national-overview/expenses-by-functional-classification"
 
 type NationalOverviewTabProps = {
@@ -114,7 +114,7 @@ export const NationalOverviewTab = ({
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <RevenueBreakdownChart years={10} topN={5} />
+        <RevenueBreakdownChart dataSourcedYear={dataSourcedYear} selectedYear={selectedYear} years={10} topN={5} />
         <ExpenseByFunctionalClassificationChart dataSourcedYear={dataSourcedYear} selectedYear={selectedYear} years={10} topN={5}/>
       </div>
     </TabsContent>

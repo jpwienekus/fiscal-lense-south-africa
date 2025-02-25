@@ -3,6 +3,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -15,7 +16,7 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 import jsonData from '@/data/parsed/revenue-breakdown.json'
-import { formatTotalTooltip } from "./tooltips/total-tooltip"
+import { formatTotalTooltip } from "../tooltips/total-tooltip"
 import { useEffect, useState } from "react"
 
 const chartConfig = {
@@ -46,6 +47,8 @@ const chartConfig = {
 } satisfies ChartConfig
 
 type RevenueBreakdownChartProps = {
+  dataSourcedYear: string,
+  selectedYear: string,
   years: number,
   topN: number
 }
@@ -61,14 +64,23 @@ type ChartData = {
 }
 
 export function RevenueBreakdownChart({
+  dataSourcedYear,
+  selectedYear,
   years,
 }: RevenueBreakdownChartProps) {
   const [data, setData] = useState<ChartData[]>([])
 
   useEffect(() => {
-    const parsedData = jsonData.slice(years * -1)
+    const currentYearIndex = jsonData.findIndex(e => e.category === selectedYear) + 1
+
+    if (currentYearIndex === -1) {
+      setData([])
+      return
+    }
+    
+    const parsedData = jsonData.slice(currentYearIndex - years, currentYearIndex)
     setData(parsedData)
-  }, [years])
+  }, [selectedYear, years])
 
   return (
     <Card>
@@ -129,6 +141,11 @@ export function RevenueBreakdownChart({
           </LineChart>
         </ChartContainer>
       </CardContent>
+      <CardFooter>
+        <CardDescription>
+          Compiled from table 1 of the national budget speech timeseries data ({dataSourcedYear})
+        </CardDescription>
+      </CardFooter>
     </Card>
   )
 }
