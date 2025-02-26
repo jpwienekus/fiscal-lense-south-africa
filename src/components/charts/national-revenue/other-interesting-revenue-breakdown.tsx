@@ -14,7 +14,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import { formatTotalTooltip } from "./tooltips/total-tooltip"
+import { formatTotalTooltip } from "../tooltips/total-tooltip"
 import { otherInterestingRevenueBreakdown } from '@/data/parsed/detailed-revenue-breakdown.json'
 
 const numberOfYears = 10

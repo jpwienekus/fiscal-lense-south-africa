@@ -139,7 +139,7 @@ export function RevenueBreakdownChart({
       </CardContent>
       <CardFooter>
         <CardDescription>
-          Compiled from table 1 of the national budget speech timeseries data ({dataSourcedYear})
+          Compiled from table 3 of the national budget speech timeseries data ({dataSourcedYear})
         </CardDescription>
       </CardFooter>
     </Card>

@@ -1,4 +1,4 @@
-import { PieChart, Pie } from "recharts"
+import { Pie, PieChart } from "recharts"
 import {
   Card,
   CardContent,
@@ -13,70 +13,60 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import jsonData from '@/data/parsed/expense-by-functional-classification.json'
+import { exciseDutyRevenueBreakdown } from '@/data/parsed/detailed-revenue-breakdown.json'
 import { useEffect, useState } from "react"
 import { formatNumber } from "../tooltips/format-number"
 
 const chartConfig = {
-  general_public_services: {
-    label: "General public services (including debt service cost)",
+  sorghum_beer_and_sorghum_flour: {
+    label: "Sorghum beer and sorghum flour",
     color: "var(--chart-1)"
   },
-  defence: {
-    label: "Defence",
+  beer: {
+    label: "Beer",
     color: "var(--chart-2)"
   },
-  economic_affairs: {
-    label: "Economic affairs",
+  wine_and_other_fermented_beverages: {
+    label: "Wine and other fermented beverages",
     color: "var(--chart-3)"
   },
-  environmental_protection: {
-    label: "Environmental protection",
+  spirits: {
+    label: "Spirits",
     color: "var(--chart-4)"
   },
-  housing_and_community_amenities: {
-    label: "Housing and community amenities",
+  cigarettes_and_cigarette_tobacco: {
+    label: "Cigarettes and cigarette tobacco",
     color: "var(--chart-5)"
   },
-  health: {
-    label: "Health",
+  pipe_tobacco_and_cigars: {
+    label: "Pipe tobacco and cigars",
     color: "var(--chart-6)"
   },
-  recreation_and_culture: {
-    label: "Recreation and culture",
+  petroleum_products: {
+    label: "Petroleum products",
     color: "var(--chart-7)"
   },
-  education: {
-    label: "Education",
+  revenue_from_neighbouring_countries: {
+    label: "Revenue from neighbouring countries",
     color: "var(--chart-8)"
-  },
-  social_protection: {
-    label: "Social protection",
-    color: "var(--chart-9)"
-  },
-  contingency_reserve: {
-    label: "Contingency reserve",
-    color: "var(--chart-10)"
   },
 } satisfies ChartConfig
 
-type ExpenseByFunctionalClassificationChartProps = {
-  dataSourcedYear: string,
-  selectedYear: string
-}
-
 type ChartData = {
   category: string;
-  general_public_services: number;
-  defence: number;
-  economic_affairs: number;
-  environmental_protection: number;
-  housing_and_community_amenities: number;
-  health: number;
-  recreation_and_culture: number;
-  education: number;
-  social_protection: number;
-  contingency_reserve: number;
+  beer: number;
+  sorghum_beer_and_sorghum_flour: number;
+  wine_and_other_fermented_beverages: number;
+  spirits: number;
+  cigarettes_and_cigarette_tobacco: number;
+  pipe_tobacco_and_cigars: number;
+  petroleum_products: number;
+  revenue_from_neighbouring_countries: number;
+}
+
+type ExciseDutyRevenutBreakdownChartProps = {
+  dataSourcedYear: string,
+  selectedYear: string
 }
 
 type MappedChartData = {
@@ -85,14 +75,14 @@ type MappedChartData = {
   fill: string;
 }
 
-export function ExpenseByFunctionalClassificationChart({
+export function ExciseDutyRevenueBreakdownChart({
   dataSourcedYear,
   selectedYear,
-}: ExpenseByFunctionalClassificationChartProps) {
+}: ExciseDutyRevenutBreakdownChartProps) {
   const [data, setData] = useState<MappedChartData[]>([])
 
   useEffect(() => {
-    const currentYear = jsonData.find(e => e.category === selectedYear)
+    const currentYear = exciseDutyRevenueBreakdown.find(e => e.category === selectedYear)
 
     if (!currentYear) {
       setData([])
@@ -112,10 +102,13 @@ export function ExpenseByFunctionalClassificationChart({
   }, [selectedYear])
 
   return (
-    <Card className="col-span-1">
+    <Card>
       <CardHeader>
-        <CardTitle>Consolidated Expenses By Functional Classification</CardTitle>
-        <CardDescription>Distribution of expenditure by functional classification in {selectedYear} (%)</CardDescription>
+        <CardTitle>
+          <span className="flex">
+            Excise Duty Revenue Breakdown
+          </span>
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -144,7 +137,7 @@ export function ExpenseByFunctionalClassificationChart({
       </CardContent>
       <CardFooter>
         <CardDescription>
-          Compiled from table 8 of the national budget speech timeseries data ({dataSourcedYear})
+          Compiled from table 3 of the national budget speech timeseries data ({dataSourcedYear})
         </CardDescription>
       </CardFooter>
     </Card>

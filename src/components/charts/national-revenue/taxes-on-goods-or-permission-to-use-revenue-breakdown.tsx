@@ -13,70 +13,65 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import jsonData from '@/data/parsed/expense-by-functional-classification.json'
+import { taxesOnGoodsOrPermissionToUseRevenueBreakdown } from '@/data/parsed/detailed-revenue-breakdown.json'
 import { useEffect, useState } from "react"
 import { formatNumber } from "../tooltips/format-number"
 
 const chartConfig = {
-  general_public_services: {
-    label: "General public services (including debt service cost)",
+  air_departure_tax: {
+    label: "Air departure tax",
     color: "var(--chart-1)"
   },
-  defence: {
-    label: "Defence",
+  plastic_bag_levy: {
+    label: "Plastic bag levy",
     color: "var(--chart-2)"
   },
-  economic_affairs: {
-    label: "Economic affairs",
+  electricity_levy: {
+    label: "Electricity levy",
     color: "var(--chart-3)"
   },
-  environmental_protection: {
-    label: "Environmental protection",
+  incandescent_light_bulb_levy: {
+    label: "Incandescent light bulb levy",
     color: "var(--chart-4)"
   },
-  housing_and_community_amenities: {
-    label: "Housing and community amenities",
+  co2_tax___motor_vehicle_emissions: {
+    label: "CO2 tax motor vehicle emissions",
     color: "var(--chart-5)"
   },
-  health: {
-    label: "Health",
+  tyre_levy: {
+    label: "Tyre levy",
     color: "var(--chart-6)"
   },
-  recreation_and_culture: {
-    label: "Recreation and culture",
+  international_oil_pollution_compensation_fund: {
+    label: "International oil pollution compensation fund",
     color: "var(--chart-7)"
   },
-  education: {
-    label: "Education",
+  carbon_tax: {
+    label: "Carbon tax",
     color: "var(--chart-8)"
   },
-  social_protection: {
-    label: "Social protection",
-    color: "var(--chart-9)"
-  },
-  contingency_reserve: {
-    label: "Contingency reserve",
-    color: "var(--chart-10)"
+  turnover_tax_for_micro_businesses: {
+    label: "Turnover tax forf micro businesses",
+    color: "var(--chart-8)"
   },
 } satisfies ChartConfig
 
-type ExpenseByFunctionalClassificationChartProps = {
-  dataSourcedYear: string,
-  selectedYear: string
-}
-
 type ChartData = {
   category: string;
-  general_public_services: number;
-  defence: number;
-  economic_affairs: number;
-  environmental_protection: number;
-  housing_and_community_amenities: number;
-  health: number;
-  recreation_and_culture: number;
-  education: number;
-  social_protection: number;
-  contingency_reserve: number;
+  air_departure_tax: number;
+  plastic_bag_levy: number;
+  electricity_levy: number;
+  incandescent_light_bulb_levy: number;
+  co2_tax___motor_vehicle_emissions: number;
+  tyre_levy: number;
+  international_oil_pollution_compensation_fund: number;
+  carbon_tax: number;
+  turnover_tax_for_micro_businesses: number;
+}
+
+type TaxesOnGoodsOrPermissionToUseRevenueBreakdownChartProps = {
+  dataSourcedYear: string,
+  selectedYear: string
 }
 
 type MappedChartData = {
@@ -85,14 +80,14 @@ type MappedChartData = {
   fill: string;
 }
 
-export function ExpenseByFunctionalClassificationChart({
+export function TaxesOnGoodsOrPermissionToUseRevenueBreakdownChart({
   dataSourcedYear,
   selectedYear,
-}: ExpenseByFunctionalClassificationChartProps) {
+}: TaxesOnGoodsOrPermissionToUseRevenueBreakdownChartProps) {
   const [data, setData] = useState<MappedChartData[]>([])
 
   useEffect(() => {
-    const currentYear = jsonData.find(e => e.category === selectedYear)
+    const currentYear = taxesOnGoodsOrPermissionToUseRevenueBreakdown.find(e => e.category === selectedYear)
 
     if (!currentYear) {
       setData([])
@@ -110,12 +105,14 @@ export function ExpenseByFunctionalClassificationChart({
 
     setData(mapped)
   }, [selectedYear])
-
   return (
-    <Card className="col-span-1">
+    <Card>
       <CardHeader>
-        <CardTitle>Consolidated Expenses By Functional Classification</CardTitle>
-        <CardDescription>Distribution of expenditure by functional classification in {selectedYear} (%)</CardDescription>
+        <CardTitle>
+          <span className="flex">
+            Taxes On Goods Or Permission To Use Revenue Breakdown
+          </span>
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -144,7 +141,7 @@ export function ExpenseByFunctionalClassificationChart({
       </CardContent>
       <CardFooter>
         <CardDescription>
-          Compiled from table 8 of the national budget speech timeseries data ({dataSourcedYear})
+          Compiled from table 3 of the national budget speech timeseries data ({dataSourcedYear})
         </CardDescription>
       </CardFooter>
     </Card>

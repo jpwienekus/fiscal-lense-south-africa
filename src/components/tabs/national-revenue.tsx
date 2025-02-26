@@ -1,10 +1,9 @@
-import { ExciseDutyRevenueBreakdownChart } from "../charts/excise-revenue-breakdown"
+import { ExciseDutyRevenueBreakdownChart } from "../charts/national-revenue/excise-revenue-breakdown"
 import { NonTaxRevenueBreakdownChart } from "../charts/national-revenue/non-tax-revenue-breakdown"
 import { RevenueBreakdownChart } from "../charts/national-revenue/revenue-breakdown-additional"
 import { TaxRevenueBreakdownChart } from "../charts/national-revenue/tax-revenue-breakdown"
 import { VatRevenueBreakdownChart } from "../charts/national-revenue/vat-revenue-breakdown"
-import { OtherInterestingRevenueBreakdownChart } from "../charts/other-interesting-revenue-breakdown"
-import { TaxesOnGoodsOrPermissionToUseRevenueBreakdownChart } from "../charts/taxes-on-goods-or-permission-to-use-revenue-breakdown copy"
+import { TaxesOnGoodsOrPermissionToUseRevenueBreakdownChart } from "../charts/national-revenue/taxes-on-goods-or-permission-to-use-revenue-breakdown"
 import { TabsContent } from "../ui/tabs"
 
 type NationalOverviewTabProps = {
@@ -29,11 +28,8 @@ export const NationalRevenueTab = ({
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <ExciseDutyRevenueBreakdownChart />
-        <TaxesOnGoodsOrPermissionToUseRevenueBreakdownChart />
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <OtherInterestingRevenueBreakdownChart />
+        <ExciseDutyRevenueBreakdownChart dataSourcedYear={dataSourcedYear} selectedYear={selectedYear} />
+        <TaxesOnGoodsOrPermissionToUseRevenueBreakdownChart dataSourcedYear={dataSourcedYear} selectedYear={selectedYear} />
       </div>
     </TabsContent>
   )
