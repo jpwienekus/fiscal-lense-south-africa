@@ -18,6 +18,10 @@ export const formatNumberBasic = (value: number) => {
   return `${currencySymbol} ${formatter.format(value)}`
 }
 
+export const formatNumberTwoDecimals = (value: number) => {
+  return `${currencySymbol} ${formatterTwoDec.format(value)}`
+}
+
 
 export const formatNumber = (value: ValueType) => {
   return (

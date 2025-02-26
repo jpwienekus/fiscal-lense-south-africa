@@ -7,6 +7,7 @@ import { RevenueExpensesChart } from "@/components/charts/national-overview/reve
 import { BorrowingRequirementChart } from "@/components/charts/national-overview/borrowing-requirement"
 import { RevenueBreakdownChart } from "@/components/charts/national-overview/revenue-breakdown";
 import { ExpenseByFunctionalClassificationChart } from "../charts/national-overview/expenses-by-functional-classification"
+import { TaxRevenueKpi } from "../kpi-cards/revenue/national/tax-revenue"
 
 type NationalOverviewTabProps = {
   selectedYear: string
@@ -16,8 +17,6 @@ export const NationalOverviewTab = ({
   selectedYear
 }: NationalOverviewTabProps) => {
 
-  const [revenue, setRevenue] = useState('')
-  const [revenueState, setRevenueState] = useState('')
   const [expenses, setExpenses] = useState('')
   const [expensesState, setExpensesState] = useState('')
   const [netPosition, setNetPosition] = useState('')
@@ -46,9 +45,6 @@ export const NationalOverviewTab = ({
     const currentYearBorrowingRequirement = borrowingRequirementData[currentYearBorrowingRequirementIndex]
     const previousYearBorrowingRequirement = borrowingRequirementData[currentYearBorrowingRequirementIndex - 1]
 
-    setRevenue(formatter.format(currentYear.revenue).toString())
-    setRevenueState(calculatePosition(currentYear.revenue, previousYear.revenue))
-
     setExpenses(formatter.format(currentYear.expenses).toString())
     setExpensesState(calculatePosition(currentYear.expenses, previousYear.expenses))
 
@@ -69,16 +65,7 @@ export const NationalOverviewTab = ({
   return (
     <TabsContent value="overview" className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-            <CardContent className="px-0">
-              <div className="text-2xl font-bold">R{revenue}</div>
-              {/* no need to render -, its already being done since the number is negative */}
-              <p className={`text-xs ${+revenueState > 0 ? 'text-green-500' : 'text-red-500'}`}>{+revenueState > 0 ? '+' : ''}{revenueState}% {+revenueState > 0 ? 'up' : 'down'}</p>
-            </CardContent>
-          </CardHeader>
-        </Card>
+        <TaxRevenueKpi selectedYear={selectedYear} />
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium">Total Expenses</CardTitle>
