@@ -115,7 +115,6 @@ export function ExpenseByFunctionalClassificationChart({
     <Card className="col-span-1">
       <CardHeader>
         <CardTitle>Consolidated Expenses By Functional Classification</CardTitle>
-        <CardDescription>Distribution of expenditure by functional classification in {selectedYear} (%)</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -144,7 +143,7 @@ export function ExpenseByFunctionalClassificationChart({
       </CardContent>
       <CardFooter>
         <CardDescription>
-          Compiled from table 8 of the national budget speech timeseries data ({dataSourcedYear})
+          Data source: South african National Treasury (Table 8 - {dataSourcedYear})
         </CardDescription>
       </CardFooter>
     </Card>

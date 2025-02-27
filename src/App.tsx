@@ -24,12 +24,11 @@ function App() {
         </header>
 
         <main className="flex-1 p-4 container mx-auto">
-          <Tabs defaultValue="overview" className="space-y-4">
+          <Tabs defaultValue="national-overview" className="space-y-4">
             <div className="flex items-center justify-between">
               <TabsList>
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="revenue">Revenue</TabsTrigger>
-                <TabsTrigger value="expenses">Expenses</TabsTrigger>
+                <TabsTrigger value="national-overview">National Overview</TabsTrigger>
+                <TabsTrigger value="provincial-overview">Provincial Overview</TabsTrigger>
               </TabsList>
               <div className="flex items-center gap-2">
                 <span className="text-sm" >Fiscal Years:</span>

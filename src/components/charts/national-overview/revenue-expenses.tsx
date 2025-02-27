@@ -26,8 +26,12 @@ const chartConfig = {
     color: "var(--chart-1)"
   },
   expenses: {
-    label: "Expenses",
+    label: "Expenditure",
     color: "var(--chart-2)"
+  },
+  deficit: {
+    label: "Deficit",
+    color: "var(--chart-3)"
   },
 } satisfies ChartConfig
 
@@ -42,6 +46,7 @@ type ChartData = {
   category: string;
   revenue: number;
   expenses: number;
+  deficit: number;
 }
 
 export function RevenueExpensesChart({
@@ -52,14 +57,20 @@ export function RevenueExpensesChart({
   const [data, setData] = useState<ChartData[]>([])
 
   useEffect(() => {
-    const currentYearIndex = jsonData.findIndex(e => e.category === selectedYear) + 1
+    const chartData = jsonData.map(e => ({
+      category: e.category,
+      revenue: e.revenue,
+      expenses: e.expenses,
+      deficit: (e.revenue - e.expenses) * -1
+    }))
+    const currentYearIndex = chartData.findIndex(e => e.category === selectedYear) + 1
 
     if (currentYearIndex === -1) {
       setData([])
       return
     }
     
-    const parsedData = jsonData.slice(currentYearIndex - years, currentYearIndex)
+    const parsedData = chartData.slice(currentYearIndex - years, currentYearIndex)
     setData(parsedData)
   }, [selectedYear, years])
 
@@ -67,7 +78,6 @@ export function RevenueExpensesChart({
     <Card className="col-span-1">
       <CardHeader>
         <CardTitle>Revenue vs Expenses ({years} Year Trend)</CardTitle>
-        <CardDescription>Annual comparision between revenue and expenses</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -99,8 +109,7 @@ export function RevenueExpensesChart({
               cursor={false}
               content={
                 <ChartTooltipContent
-                  className="w-[250px]"
-                  formatter={(value, name, item, index) => formatTotalTooltip(value, name, item, index, chartConfig, true)}
+                  formatter={(value, name, item, index) => formatTotalTooltip(value, name, item, index, chartConfig)}
                 />
               }
             />
@@ -130,6 +139,18 @@ export function RevenueExpensesChart({
                   stopOpacity={0.1}
                 />
               </linearGradient>
+              <linearGradient id="fillDeficit" x1="0" y1="0" x2="0" y2="1">
+                <stop
+                  offset="5%"
+                  stopColor="var(--color-deficit)"
+                  stopOpacity={0.8}
+                />
+                <stop
+                  offset="95%"
+                  stopColor="var(--color-deficit)"
+                  stopOpacity={0.1}
+                />
+              </linearGradient>
             </defs>
 
             <Area
@@ -146,13 +167,20 @@ export function RevenueExpensesChart({
               fillOpacity={0.4}
               stroke="var(--color-expenses)"
             />
+            <Area
+              dataKey="deficit"
+              type="natural"
+              fill="url(#fillDeficit)"
+              fillOpacity={0.4}
+              stroke="var(--color-deficit)"
+            />
             <ChartLegend content={<ChartLegendContent className="flex flex-row justify-center items-center gap-4 pt-6" />} />
           </AreaChart>
         </ChartContainer>
       </CardContent>
       <CardFooter>
         <CardDescription>
-          Compiled from table 1 of the national budget speech timeseries data ({dataSourcedYear})
+          Data source: South african National Treasury (Table 1 - {dataSourcedYear})
         </CardDescription>
       </CardFooter>
     </Card>

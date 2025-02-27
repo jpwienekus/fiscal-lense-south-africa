@@ -15,31 +15,15 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import jsonData from '@/data/parsed/borrowing-requirement.json'
+import jsonData from '@/data/parsed/debt-service-cost.json'
 import { formatTotalTooltip } from "@/components/charts/tooltips/total-tooltip"
 import { useEffect, useState } from "react"
 import { formatNumberBasic } from "../tooltips/format-number"
 
 const chartConfig = {
-  main_budget_balance: {
+  of_which__debt_service_costs: {
     label: "Main budget balance",
     color: "var(--chart-1)"
-  },
-  domestic_long_term_loans: {
-    label: "Domestic long term loans",
-    color: "var(--chart-2)"
-  },
-  foreign_loans: {
-    label: "Foreign loans",
-    color: "var(--chart-3)"
-  },
-  eskom_debt_relief_arrangement: {
-    label: "Eskom debt relief arrancement",
-    color: "var(--chart-4)"
-  },
-  gfecra_settlement: {
-    label: "GFECRA settlement",
-    color: "var(--chart-5)"
   },
 } satisfies ChartConfig
 
@@ -52,14 +36,10 @@ type BorrowingRequirementChartProps = {
 
 type ChartData = {
   category: string;
-  main_budget_balance: number;
-  domestic_long_term_loans: number;
-  foreign_loans: number;
-  eskom_debt_relief_arrangement: number;
-  gfecra_settlement: number;
+  of_which__debt_service_costs: number;
 }
 
-export function BorrowingRequirementChart({
+export function DebtServiceCost({
   dataSourcedYear,
   selectedYear,
   years,
@@ -81,7 +61,8 @@ export function BorrowingRequirementChart({
   return (
     <Card className="col-span-1">
       <CardHeader>
-        <CardTitle>Gross Borrowing Requirement ({years} Year Trend)</CardTitle>
+        <CardTitle>Debt Servicing Cost</CardTitle>
+        <CardDescription>Annual debt servicing cost</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -133,7 +114,7 @@ export function BorrowingRequirementChart({
       </CardContent>
       <CardFooter>
         <CardDescription>
-          Data source: South african National Treasury (Table 1 - {dataSourcedYear})
+          Compiled from table 1 of the national budget speech timeseries data ({dataSourcedYear})
         </CardDescription>
       </CardFooter>
     </Card>

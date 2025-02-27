@@ -1,4 +1,4 @@
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
+import { CartesianGrid, Line, LineChart, Pie, PieChart, XAxis, YAxis } from "recharts"
 import {
   Card,
   CardContent,
@@ -10,40 +10,41 @@ import {
 import {
   ChartConfig,
   ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import jsonData from '@/data/parsed/revenue-breakdown.json'
-import { formatTotalTooltip } from "../tooltips/total-tooltip"
 import { useEffect, useState } from "react"
-import { formatNumberBasic } from "../tooltips/format-number"
+import { formatNumber } from "../tooltips/format-number"
+import { taxRevenueBreakdown } from '@/data/parsed/detailed-revenue-breakdown.json'
 
 const chartConfig = {
-  tax_revenue__gross_: {
-    label: "Tax revenue (gross)",
+  taxes_on_income_and_profits: {
+    label: "Income and profits",
     color: "var(--chart-1)"
   },
-  less__sacu_payments: {
-    label: "Less: SACU payments",
+  taxes_on_payroll_and_workforce: {
+    label: "Payroll and workforce",
     color: "var(--chart-2)"
   },
-  other_adjustment: {
-    label: "Other adjustment",
+  taxes_on_property: {
+    label: "Property",
     color: "var(--chart-3)"
   },
-  non_tax_revenue__departmental_receipts_: {
-    label: "Non-tax revenue (departmental receipts)",
+  domestic_taxes_on_goods_and_services: {
+    label: "Goods and services",
     color: "var(--chart-4)"
   },
-  financial_transactions_in_assets_and_liabilities: {
-    label: "Financial transactions in assets and liabilities",
+  taxes_on_international_trade_and_transactions: {
+    label: "International trade and transactions",
     color: "var(--chart-5)"
   },
-  sales_of_capital_assets: {
-    label: "Sales of capital assets",
+  other_taxes: {
+    label: "Other",
     color: "var(--chart-6)"
+  },
+  state_miscellaneous_revenue: {
+    label: "State miscellaneous revenue",
+    color: "var(--chart-7)"
   },
 } satisfies ChartConfig
 
@@ -56,12 +57,19 @@ type RevenueBreakdownChartProps = {
 
 type ChartData = {
     category: string;
-    tax_revenue__gross_: number;
-    less__sacu_payments: number;
-    other_adjustment: number;
-    non_tax_revenue__departmental_receipts_: number;
-    financial_transactions_in_assets_and_liabilities: number;
-    sales_of_capital_assets: number;
+    taxes_on_income_and_profits: number;
+    taxes_on_payroll_and_workforce: number;
+    taxes_on_property: number;
+    domestic_taxes_on_goods_and_services: number;
+    taxes_on_international_trade_and_transactions: number;
+    other_taxes: number;
+    state_miscellaneous_revenue: number;
+}
+
+type MappedChartData = {
+  category: string;
+  total: number;
+  fill: string;
 }
 
 export function RevenueBreakdownChart({
@@ -69,18 +77,26 @@ export function RevenueBreakdownChart({
   selectedYear,
   years,
 }: RevenueBreakdownChartProps) {
-  const [data, setData] = useState<ChartData[]>([])
+  const [data, setData] = useState<MappedChartData[]>([])
 
   useEffect(() => {
-    const currentYearIndex = jsonData.findIndex(e => e.category === selectedYear) + 1
+    const currentYear = taxRevenueBreakdown.find(e => e.category === selectedYear)
 
-    if (currentYearIndex === -1) {
+    if (!currentYear) {
       setData([])
       return
     }
-    
-    const parsedData = jsonData.slice(currentYearIndex - years, currentYearIndex)
-    setData(parsedData)
+
+    const mapped = Object.keys(currentYear).filter(e => e !== 'state_miscellaneous_revenue').slice(1)
+      .map(e => {
+        return {
+          category: e,
+          total: Number((+currentYear[e as keyof ChartData])),
+          fill: `var(--color-${e})`
+        }
+      })
+
+    setData(mapped)
   }, [selectedYear, years])
 
   return (
@@ -88,64 +104,38 @@ export function RevenueBreakdownChart({
       <CardHeader>
         <CardTitle>
           <span className="flex">
-            Revenue Breakdown ({years} Year Trend)
+            Tax Revenue Sources
           </span>
         </CardTitle>
-        <CardDescription>Annual revenue sources</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
-          <LineChart
-            accessibilityLayer
-            data={data}
-            margin={{
-              left: 12,
-              right: 12,
-            }}
-          >
-            <CartesianGrid vertical={false} />
-            <XAxis
-              dataKey="category"
-              tickLine={false}
-              axisLine={false}
-              interval={0}
-              angle={-45}
-              textAnchor="end"
-            />
-            <YAxis
-              tickLine={false}
-              axisLine={false}
-              tickMargin={10}
-              tickFormatter={formatNumberBasic}
-            />
-
+          <PieChart>
             <ChartTooltip
               cursor={false}
               content={
                 <ChartTooltipContent
-                  formatter={(value, name, item, index) => formatTotalTooltip(value, name, item, index, chartConfig)}
-                />
-              }
+                  hideLabel
+                  formatter={formatNumber}
+                />}
             />
-
-            {Object.keys(chartConfig).map((key) => (
-              <Line
-                key={key}
-                dataKey={key}
-                type="natural"
-                fill={`var(--color-${key})`}
-                fillOpacity={0.4}
-                stroke={`var(--color-${key})`}
-              />
-            ))}
-
-            <ChartLegend content={<ChartLegendContent className="flex flex-row justify-center items-center gap-6 pt-4" />} />
-          </LineChart>
+            <Pie
+              data={data}
+              dataKey="total"
+              nameKey="category"
+              innerRadius={80}
+              label={({ name, percent }) => {
+                const chartKey = name as keyof typeof chartConfig;
+                return `${chartConfig[chartKey].label}: ${(percent * 100).toFixed(2)}%`
+              }}
+            >
+            </Pie>
+          </PieChart>
         </ChartContainer>
       </CardContent>
       <CardFooter>
         <CardDescription>
-          Compiled from table 1 of the national budget speech timeseries data ({dataSourcedYear})
+          Data source: South african National Treasury (Table 3 - {dataSourcedYear})
         </CardDescription>
       </CardFooter>
     </Card>

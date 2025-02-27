@@ -34,6 +34,7 @@ async function main() {
   writeData('src/data/parsed/expense-breakdown.json', formatExpenseBreakdown(expense.headers, expense.expenseBreakdown))
   writeData('src/data/parsed/detailed-revenue-breakdown.json', detailedRevenueBreakdown)
   writeData('src/data/parsed/expense-by-functional-classification.json', formatExpenseBreakdown(consolidatedExpenditurebyFunctionalClassification.headers, consolidatedExpenditurebyFunctionalClassification.expense))
+  writeData('src/data/parsed/debt-service-cost.json', formatExpenseBreakdown(consolidatedExpenditurebyFunctionalClassification.headers, consolidatedExpenditurebyFunctionalClassification.expense))
 }
 
 // Multiply by is used to normalize the values. Some sheets have it represented per million and some per thousand
@@ -259,6 +260,7 @@ export class ExpensesByFunctionalClassificationParser extends BaseParser {
     let lineNumber = 0
     let headers: string[] = []
     const expense: { [key: string]: number[] } = {}
+    const debtServiceCost: { [key: string]: number[] } = {}
 
     for await (const line of readline) {
       const parsedLine = line.split(this.delimiter)
@@ -269,14 +271,17 @@ export class ExpensesByFunctionalClassificationParser extends BaseParser {
       } else if ([3, 5, 10, 19, 20, 24, 25, 26, 27, 30].includes(lineNumber)) {
         // Every 2nd column has a percentage, i am going to calculate it instead
         expense[parsedLine[0].trim().toLowerCase().replace(/ /g, '_').replace(/-/g, '_').replace(/:/g, '_').replace(/\(/g, '_').replace(/\)/g, '_')] = parsedLine.splice(1).filter((_, i) => i % 2 === 0).map(Number)
-      }
+      } else if (lineNumber === 4)
+        debtServiceCost[parsedLine[0].trim().toLowerCase().replace(/ /g, '_').replace(/-/g, '_').replace(/:/g, '_').replace(/\(/g, '_').replace(/\)/g, '_')] = parsedLine.splice(1).filter((_, i) => i % 2 === 0).map(Number)
+
 
       lineNumber++
     }
 
     return {
       headers,
-      expense
+      expense,
+      debtServiceCost
     }
   }
 }
